@@ -1,0 +1,18 @@
+{
+  "buildFiles": [
+    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\platforms.cmake",
+    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\android.toolchain.cmake",
+    "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\.externalNativeBuild\\cmake\\release\\armeabi-v7a --target clean"
+  ],
+  "libraries": {
+    "native-lib-Release-armeabi-v7a": {
+      "artifactName": "native-lib",
+      "buildCommand": "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\.externalNativeBuild\\cmake\\release\\armeabi-v7a --target native-lib",
+      "abi": "armeabi-v7a",
+      "output": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\build\\intermediates\\cmake\\release\\obj\\armeabi-v7a\\libnative-lib.so"
+    }
+  }
+}

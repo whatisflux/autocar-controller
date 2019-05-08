@@ -1,0 +1,19 @@
+# ninja log v5
+12	1468	5744606803872486	CMakeFiles/native-lib.dir/src/main/cpp/ranked_tel_char.cpp.o	44fc9ea9f3f6b12d
+9	1509	5744606804111395	CMakeFiles/native-lib.dir/src/main/cpp/tel_char.cpp.o	15705ee198b8ccfb
+1470	3334	5744606822158145	CMakeFiles/native-lib.dir/src/main/cpp/CollectingLocation.cpp.o	1133a0709cdeb1f0
+15	3352	5744606822626728	CMakeFiles/native-lib.dir/src/main/cpp/RotatedAverageCalculator.cpp.o	3c5e204ba6228d06
+6	3482	5744606824032654	CMakeFiles/native-lib.dir/src/main/cpp/PitScanner.cpp.o	92b9d0fa3e6272dc
+1510	3573	5744606824956254	CMakeFiles/native-lib.dir/src/main/cpp/MineralScorer.cpp.o	363841d090f423b8
+3	3842	5744606827611909	CMakeFiles/native-lib.dir/src/main/cpp/Telemetry.cpp.o	b0e6ccb06b10c025
+0	5000	5744606839215892	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	8e5115edfb5ae606
+5001	5172	5744606841103201	../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	5cf1d7a071164b34
+39	1236	5768144326982037	CMakeFiles/native-lib.dir/src/main/cpp/ranked_tel_char.cpp.o	44fc9ea9f3f6b12d
+30	1243	5768144327042451	CMakeFiles/native-lib.dir/src/main/cpp/tel_char.cpp.o	15705ee198b8ccfb
+43	2767	5768144342538906	CMakeFiles/native-lib.dir/src/main/cpp/RotatedAverageCalculator.cpp.o	3c5e204ba6228d06
+47	2950	5768144344441452	CMakeFiles/native-lib.dir/src/main/cpp/PitScanner.cpp.o	92b9d0fa3e6272dc
+1237	2969	5768144344670851	CMakeFiles/native-lib.dir/src/main/cpp/CollectingLocation.cpp.o	1133a0709cdeb1f0
+1244	3192	5768144346944183	CMakeFiles/native-lib.dir/src/main/cpp/MineralScorer.cpp.o	363841d090f423b8
+34	3245	5768144347493901	CMakeFiles/native-lib.dir/src/main/cpp/Telemetry.cpp.o	b0e6ccb06b10c025
+6	4438	5768144359348488	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	8e5115edfb5ae606
+4439	4768	5768144362798524	../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	5cf1d7a071164b34

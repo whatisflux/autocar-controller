@@ -1,0 +1,71 @@
+{
+  "buildFiles": [
+    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\platforms.cmake",
+    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\android.toolchain.cmake",
+    "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a --target clean"
+  ],
+  "libraries": {
+    "native-lib-Debug-armeabi-v7a": {
+      "buildCommand": "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a --target native-lib",
+      "buildType": "debug",
+      "toolchain": "2745462917",
+      "abi": "armeabi-v7a",
+      "artifactName": "native-lib",
+      "files": [
+        {
+          "src": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\src\\main\\cpp\\native-lib.cpp",
+          "flags": "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mfpu=vfpv3-d16 -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -std=gnu++11 -O0 -fno-limit-debug-info  -fPIC  ",
+          "workingDirectory": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a"
+        },
+        {
+          "src": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\src\\main\\cpp\\Telemetry.cpp",
+          "flags": "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mfpu=vfpv3-d16 -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -std=gnu++11 -O0 -fno-limit-debug-info  -fPIC  ",
+          "workingDirectory": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a"
+        },
+        {
+          "src": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\src\\main\\cpp\\tel_char.cpp",
+          "flags": "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mfpu=vfpv3-d16 -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -std=gnu++11 -O0 -fno-limit-debug-info  -fPIC  ",
+          "workingDirectory": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a"
+        },
+        {
+          "src": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\src\\main\\cpp\\ranked_tel_char.cpp",
+          "flags": "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mfpu=vfpv3-d16 -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -std=gnu++11 -O0 -fno-limit-debug-info  -fPIC  ",
+          "workingDirectory": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a"
+        },
+        {
+          "src": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\src\\main\\cpp\\PitScanner.cpp",
+          "flags": "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mfpu=vfpv3-d16 -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -std=gnu++11 -O0 -fno-limit-debug-info  -fPIC  ",
+          "workingDirectory": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a"
+        },
+        {
+          "src": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\src\\main\\cpp\\RotatedAverageCalculator.cpp",
+          "flags": "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mfpu=vfpv3-d16 -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -std=gnu++11 -O0 -fno-limit-debug-info  -fPIC  ",
+          "workingDirectory": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a"
+        },
+        {
+          "src": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\src\\main\\cpp\\MineralScorer.cpp",
+          "flags": "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mfpu=vfpv3-d16 -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -std=gnu++11 -O0 -fno-limit-debug-info  -fPIC  ",
+          "workingDirectory": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a"
+        },
+        {
+          "src": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\src\\main\\cpp\\CollectingLocation.cpp",
+          "flags": "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mfpu=vfpv3-d16 -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -std=gnu++11 -O0 -fno-limit-debug-info  -fPIC  ",
+          "workingDirectory": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a"
+        }
+      ],
+      "output": "C:\\FTC\\ftc_app-master\\ftc_app-master\\TeamCode\\build\\intermediates\\cmake\\debug\\obj\\armeabi-v7a\\libnative-lib.so"
+    }
+  },
+  "toolchains": {
+    "2745462917": {
+      "cppCompilerExecutable": "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}
