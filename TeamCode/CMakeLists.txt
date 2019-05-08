@@ -22,14 +22,7 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/native-lib.cpp
-             src/main/cpp/Telemetry.cpp
-             src/main/cpp/tel_char.cpp
-             src/main/cpp/ranked_tel_char.cpp
-             src/main/cpp/PitScanner.cpp
-             src/main/cpp/RotatedAverageCalculator.cpp
-             src/main/cpp/MineralScorer.cpp
-             src/main/cpp/CollectingLocation.cpp)
+             src/main/cpp/native-lib.cpp)
 
 add_library(lib_opencv SHARED IMPORTED)
 
