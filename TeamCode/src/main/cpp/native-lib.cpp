@@ -13,7 +13,7 @@ using namespace std;
 
 
 extern "C"
-JNIEXPORT jint JNICALL
+JNIEXPORT void JNICALL
 Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv *env, jclass type,
                                                                     jlong addrRgba) {
 
@@ -25,6 +25,7 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
 
     //let's not care about the alpha channel
     cvtColor(img,img,COLOR_RGBA2RGB);
+
 
 
     //this is what we will use for processing stuff (at lower resolution)

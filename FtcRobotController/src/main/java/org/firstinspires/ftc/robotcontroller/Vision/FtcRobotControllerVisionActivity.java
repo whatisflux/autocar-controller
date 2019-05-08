@@ -77,6 +77,7 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         //get the inputFrame data
         mRgba = inputFrame.rgba();
 
+        Vision.readBallPattern(mRgba.getNativeObjAddr());
 
         return mRgba;
     }
