@@ -1,4 +1,4 @@
-# Install script for directory: C:/FTC/ftc_app-master/ftc_app-master/TeamCode
+# Install script for directory: C:/Physics/ftc_app-master/ftc_app-master/TeamCode
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/FTC/ftc_app-master/ftc_app-master/TeamCode/.externalNativeBuild/cmake/debug/armeabi-v7a/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Physics/ftc_app-master/ftc_app-master/TeamCode/.externalNativeBuild/cmake/debug/armeabi-v7a/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
