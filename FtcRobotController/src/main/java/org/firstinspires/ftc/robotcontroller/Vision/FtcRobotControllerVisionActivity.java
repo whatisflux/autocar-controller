@@ -1,10 +1,12 @@
 package org.firstinspires.ftc.robotcontroller.Vision;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.qualcomm.ftcrobotcontroller.R;
 
+import org.firstinspires.ftc.robotcontroller.Server.ImageCommunication;
 import org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity;
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
@@ -24,9 +26,22 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
      * Use this to access the instance data because it is set in on create
      */
     public static FtcRobotControllerVisionActivity linkToInstance;
+
+
+    /**
+     * The rgb image
+     */
     Mat mRgba;
 
+
     JavaCameraView javaCameraView;
+
+
+    /**
+     * Use this to send the image to craig
+     */
+    private ImageCommunication imageCommunication;
+
 
     boolean loadedVision = false;
 
@@ -79,8 +94,15 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
 
         Vision.readBallPattern(mRgba.getNativeObjAddr());
 
+
+
+        imageCommunication.sendImage(mRgba);
+
         return mRgba;
     }
+
+
+
 
 
 
@@ -94,6 +116,14 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         javaCameraView = (JavaCameraView) findViewById (R.id.java_camera_view);
         javaCameraView.setVisibility(View.VISIBLE);
         javaCameraView.setCvCameraViewListener(this);
+
+
+        Log.d("ERROR_LOG", "initializing");
+        //initialize the image communication
+        imageCommunication = new ImageCommunication();
+        Log.d("ERROR_LOG", "done");
+
+
     }
 
     @Override

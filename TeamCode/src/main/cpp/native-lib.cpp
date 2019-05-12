@@ -6,11 +6,8 @@
 #include <sstream>
 #include "opencv2/opencv.hpp"
 
-
-
 using namespace cv;
 using namespace std;
-
 
 extern "C"
 JNIEXPORT void JNICALL
@@ -19,6 +16,7 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
 
     //get our img by converting the long into a pointer
     Mat& img = *(Mat*) addrRgba;
+
 
     const double scaleSize = 8;
 

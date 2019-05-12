@@ -1,4 +1,6 @@
 package Main;
 
-public class Robot {
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+
+public class Robot{
 }
