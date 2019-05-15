@@ -31,41 +31,51 @@ public class ImageCommunication {
      *              finishes this it will be)
      */
     public void sendImage(Mat mRgba) {
+        int width = 80;
+        int height = 60;
 
-        Mat smallImage = new Mat(60,80,CV_8UC4);
-        Size size = new Size(80,60);
+        Mat smallImage = new Mat(height,width,CV_8UC4);
+        Size size = new Size(width,height);
         Imgproc.resize( mRgba, smallImage, size );
 
 
-        Log.d("ERROR_LOG: ","rows: " + smallImage.rows() + " cols: " + smallImage.cols());
+//        Log.d("ERROR_LOG: ","rows: " + smallImage.rows() + " cols: " + smallImage.cols());
 
-        StringBuilder binaryMap = new StringBuilder();
+        int c = 0;
+//        StringBuilder binaryMap = new StringBuilder();
+        byte[] map = new byte[width * height/8];
         for(int y = 0; y < smallImage.rows(); y ++){
             for(int x = 0; x < smallImage.cols(); x += 8){
                 //this will store the data for this byte (8 binary pixels) of information
-                StringBuilder thisByte = new StringBuilder();
+//                StringBuilder thisByte = new StringBuilder();
+                byte theByte = 0;
                 //now scan ahead in the image
                 for(int i = 0; i < 8; i ++){
                     //get the color
                     double[] color = smallImage.get(y,x + i);
 
-                    if((color[0] + color[1] + color[2])/3 > 40){
-                        thisByte.append("1");
+                    if((color[0] + color[1] + color[2])/3 > 150){
+//                        thisByte.append("1");
+                        theByte += (1 << i);
                     }else{
-                        thisByte.append("0");
+                        // nothing
                     }
                 }
                 //convert the series of 1s and 0s to a char
-                char convertedToChar = (char) Integer.parseInt(thisByte.toString(),2);
+//                char convertedToChar = (char) Integer.parseInt(thisByte.toString(),2);
                 //append the char to the string builder
-                binaryMap.append(convertedToChar);
+                //map[c++] = (byte) convertedToChar;
+                map[c++] = theByte;
+//                binaryMap.append(convertedToChar);
             }
         }
-        Log.d("ERROR_LOG: ","string: " + binaryMap.toString());
 
-        Log.d("ERROR_LOG: ","length: " + binaryMap.toString().length());
+        udpServer.sendUdpRAW(map);
+//        Log.d("ERROR_LOG: ","string: " + binaryMap.toString());
 
-        udpServer.addMessage(binaryMap.toString());
+//        Log.d("ERROR_LOG: ","length: " + binaryMap.toString().length());
+
+        //udpServer.addMessage(binaryMap.toString());
     }
 
 

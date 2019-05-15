@@ -104,6 +104,26 @@ public class UdpServer implements Runnable{
     }
 
 
+    /**
+     * This is a prate method to actually send a message over the udp protocol
+     * @param message the message you wish to send
+     */
+    public void sendUdpRAW(byte[] message){
+        try(DatagramSocket serverSocket = new DatagramSocket()){
+            DatagramPacket datagramPacket = new DatagramPacket(
+                    message,
+                    message.length,
+                    InetAddress.getByName("192.168.49.133"),
+                    clientPort);
+
+            serverSocket.send(datagramPacket);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     //These are the double buffering system
     private String lastUpdate = "";
     private String currentUpdate = "";
