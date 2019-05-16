@@ -33,6 +33,4 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
     resize(img, processingImage, Size(), 1/scaleSize, 1/scaleSize, INTER_CUBIC);
 
 
-
-
 }

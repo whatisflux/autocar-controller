@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.qualcomm.ftcrobotcontroller.R;
 
+import org.firstinspires.ftc.robotcontroller.PathReception.PathInterpreter;
 import org.firstinspires.ftc.robotcontroller.Server.ImageCommunication;
 import org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity;
 import org.opencv.android.BaseLoaderCallback;
@@ -42,6 +43,10 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
      */
     private ImageCommunication imageCommunication;
 
+    /**
+     * Deals with Craig's data coming in
+     */
+    private PathInterpreter pathInterpreter;
 
     boolean loadedVision = false;
 
@@ -121,6 +126,7 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         Log.d("ERROR_LOG", "initializing");
         //initialize the image communication
         imageCommunication = new ImageCommunication();
+        pathInterpreter = new PathInterpreter();
         Log.d("ERROR_LOG", "done");
 
 
