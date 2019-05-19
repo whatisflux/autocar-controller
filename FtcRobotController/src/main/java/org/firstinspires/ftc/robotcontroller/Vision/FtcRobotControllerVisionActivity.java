@@ -2,6 +2,7 @@ package org.firstinspires.ftc.robotcontroller.Vision;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.SeekBar;
 
 import com.qualcomm.ftcrobotcontroller.R;
 
@@ -77,12 +78,19 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         //get the inputFrame data
         mRgba = inputFrame.rgba();
 
-        Vision.readBallPattern(mRgba.getNativeObjAddr());
+        Vision.readBallPattern(mRgba.getNativeObjAddr(),debugBar1.getProgress(),
+                debugBar2.getProgress(), debugBar3.getProgress());
 
         return mRgba;
     }
 
 
+
+
+
+    SeekBar debugBar1;
+    SeekBar debugBar2;
+    SeekBar debugBar3;
 
 
     @Override
@@ -94,6 +102,13 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         javaCameraView = (JavaCameraView) findViewById (R.id.java_camera_view);
         javaCameraView.setVisibility(View.VISIBLE);
         javaCameraView.setCvCameraViewListener(this);
+
+
+        debugBar1 = (SeekBar) findViewById(R.id.seekBar1);
+        debugBar2 = (SeekBar) findViewById(R.id.seekBar2);
+        debugBar3 = (SeekBar) findViewById(R.id.seekBar3);
+
+
     }
 
     @Override

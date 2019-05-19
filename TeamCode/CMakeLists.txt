@@ -47,4 +47,5 @@ find_library( # Sets the name of the path variable.
 
 
 
-target_link_libraries(native-lib $\{log-lib} lib_opencv)
+target_link_libraries(native-lib
+    ${log-lib} lib_opencv)

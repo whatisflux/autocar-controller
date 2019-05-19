@@ -1,7 +1,7 @@
 [
 {
-  "directory": "C:/Physics/ftc_app-master/ftc_app-master/TeamCode/.externalNativeBuild/cmake/release/armeabi-v7a",
-  "command": "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=armv7-none-linux-androideabi19 --gcc-toolchain=C:/Users/Peter/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/Peter/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -I../../../../src/main/jniIncludes  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mfpu=vfpv3-d16 -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -std=gnu++11 -Oz -DNDEBUG  -fPIC   -o CMakeFiles\\native-lib.dir\\src\\main\\cpp\\native-lib.cpp.o -c C:\\Physics\\ftc_app-master\\ftc_app-master\\TeamCode\\src\\main\\cpp\\native-lib.cpp",
-  "file": "C:/Physics/ftc_app-master/ftc_app-master/TeamCode/src/main/cpp/native-lib.cpp"
+  "directory": "/SP/autocar-controller/TeamCode/.externalNativeBuild/cmake/release/armeabi-v7a",
+  "command": "/Users/dalejacobs/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi19 --gcc-toolchain=/Users/dalejacobs/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/dalejacobs/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dnative_lib_EXPORTS -I../../../../src/main/jniIncludes  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mfpu=vfpv3-d16 -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -std=gnu++11 -Oz -DNDEBUG  -fPIC   -o CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o -c /SP/autocar-controller/TeamCode/src/main/cpp/native-lib.cpp",
+  "file": "/SP/autocar-controller/TeamCode/src/main/cpp/native-lib.cpp"
 }
 ]
