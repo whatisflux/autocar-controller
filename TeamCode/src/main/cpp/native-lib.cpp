@@ -32,5 +32,4 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
     //rescale the main image into the processing image. scaleSize of 4 = 1/16 the size
     resize(img, processingImage, Size(), 1/scaleSize, 1/scaleSize, INTER_CUBIC);
 
-
 }

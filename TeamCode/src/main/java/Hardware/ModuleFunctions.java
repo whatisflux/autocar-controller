@@ -1,20 +1,22 @@
 package Hardware;
 
-import static Math.MyMath.AngleWrap;
+import MyMath.MyMath;
+
+import static MyMath.MyMath.AngleWrap;
 
 /**
  * Math functions used by the Swerve Module
  */
 public class ModuleFunctions {
     //converts a delta in encoder ticks to radians
-    private static double RADS_PER_TICK_SCALE_FACTOR = 0.0149825387087485834;
+    private static double RADS_PER_TICK_SCALE_FACTOR = 0.005257015819258701;
 
     /**
      * calculates angle error
      */
     public static double subtractAngles(double currentAngle, double targetAngle) {
-        double error = targetAngle - currentAngle;
-        error = AngleWrap(error);
+        double error = currentAngle - targetAngle;
+        error = MyMath.AngleWrap(error);
         return error;
     }
 
@@ -40,8 +42,8 @@ public class ModuleFunctions {
      * calculates current module angle based on input encoder values
      */
     public static double calculateAngle(double encoder1, double encoder2) {
-        double rawAngle = (encoder1 + encoder2)* RADS_PER_TICK_SCALE_FACTOR;
-        return ModuleFunctions.wrapAngle(rawAngle);
+        double rawAngle = (encoder1 + encoder2) * RADS_PER_TICK_SCALE_FACTOR;
+        return MyMath.AngleWrap(rawAngle);
     }
 
 }

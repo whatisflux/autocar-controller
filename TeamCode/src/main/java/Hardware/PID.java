@@ -48,7 +48,7 @@ public class PID {
         currentClockTime = System.nanoTime();
 
         //update time is current time minus the last known time
-        timeSinceUpdate = currentClockTime - previousClockTime;
+        timeSinceUpdate = (currentClockTime - previousClockTime)/1000000000.0;
 
         //adds to error sum proportional to time and distance
         currentErrorSum += (distanceFromTarget - dWeight) * timeSinceUpdate;

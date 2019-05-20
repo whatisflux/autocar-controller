@@ -1,0 +1,19 @@
+Executable : C:\Users\Peter\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\cmake.exe
+arguments : 
+-HC:\Physics\autocar-controller\TeamCode
+-BC:\Physics\autocar-controller\FtcRobotController\.externalNativeBuild\cmake\release\x86_64
+-DANDROID_ABI=x86_64
+-DANDROID_PLATFORM=android-21
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=C:\Physics\autocar-controller\FtcRobotController\build\intermediates\cmake\release\obj\x86_64
+-DCMAKE_BUILD_TYPE=Release
+-DANDROID_NDK=C:\Users\Peter\AppData\Local\Android\Sdk\ndk-bundle
+-DCMAKE_CXX_FLAGS=-std=c++11
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_ANDROID_ARCH_ABI=x86_64
+-DCMAKE_SYSTEM_VERSION=21
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_ANDROID_NDK=C:\Users\Peter\AppData\Local\Android\Sdk\ndk-bundle
+-DCMAKE_TOOLCHAIN_FILE=C:\Users\Peter\AppData\Local\Android\Sdk\ndk-bundle\build\cmake\android.toolchain.cmake
+-G Ninja
+jvmArgs : 
+
