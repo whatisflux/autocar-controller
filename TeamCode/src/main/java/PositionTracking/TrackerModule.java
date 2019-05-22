@@ -1,11 +1,12 @@
 package PositionTracking;
 
+import android.os.SystemClock;
+
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.util.Range;
 
 import Hardware.FilteredMotor;
 import Hardware.ModuleFunctions;
-import Hardware.PID;
 import Main.Robot;
 
 /**
@@ -43,12 +44,10 @@ public class TrackerModule {
         this.reversed = reversed;
         this.motor1 = motor1;
         this.motor2 = motor2;
-        this.minPower = minPower; // set minPower upon initialization of object
+        motor1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        motor2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+
         this.angleToTurnAt = angleToTurnAt;//remember this
-        //pid loop to control module rotation
-        angleLoop = new PID(0.13, 0.3, 0.5, 0.05);
-
-
 
 
         this.myRobot = myRobot;
@@ -98,37 +97,57 @@ public class TrackerModule {
     private double turnPower = 0; //not user input, calculated based on error
     private double currentTurnVelocity = 0; //current rate at which the module is turning
 
-    private double currentClockTimeNanos = 0; //current time on the clock
-    private double previousClockTime = 0; //previous update's clock time
-    private double timeSinceUpdate = 0; //time of the update
+    private long currentTimeNanos = 0; //current time on the clock
+    private long lastTimeNanos = 0; //previous update's clock time
+    private double elapsedTimeThisUpdate = 0; //time of the update
 
 
     private double motor1Power = 0;
     private double motor2Power = 0;
 
 
-    //the minimum power we are allowed to go
-    private double minPower;
-
-    //the pid controller for the angle
-    private PID angleLoop;
 
 
+    //used for debugging
+    double angleTurnedSum = 0;
+
+
+
+
+
+    //the current error sum when turning toward the target
+    private double turnErrorSum = 0;
 
     /**
      * Sets powers to motors to hit target angle/wheel power
      */
     public void calculatePowersFixed(double rawTargetAngle, double wheelPower) {
         if(reversed){wheelPower *= -1;}//reversed this if we are reversed
-        currentClockTimeNanos = System.nanoTime();
-        timeSinceUpdate = (currentClockTimeNanos - previousClockTime)/1e9;
+        currentTimeNanos = SystemClock.elapsedRealtimeNanos();
+        elapsedTimeThisUpdate = (currentTimeNanos - lastTimeNanos)/1e9;
 
+        if(elapsedTimeThisUpdate < 0.003){
+            return;//don't do anything if it is too fast
+        }
+        //remember the time to calculate delta the next update
+        lastTimeNanos = currentTimeNanos;
+        //if there has been an outrageously long amount of time, don't bother
+        if(elapsedTimeThisUpdate > 1){
+            return;
+        }
+
+
+        //calculate our current angle
         currentAngle_rad = ModuleFunctions.calculateAngle(motor1.getCurrentPosition(),
                 motor2.getCurrentPosition());
 
 
         angleError = ModuleFunctions.subtractAngles(rawTargetAngle,currentAngle_rad);
+        angleError -= (getCurrentTurnVelocity() / Math.toRadians(300)) * Math.toRadians(30)
+            * myRobot.getDouble("d");
 
+
+        //we should never turn more than 180 degrees, just reverse the direction
         while (Math.abs(angleError) > Math.toRadians(90)) {
             if(rawTargetAngle > currentAngle_rad){
                 rawTargetAngle -= Math.toRadians(180);
@@ -142,44 +161,49 @@ public class TrackerModule {
 
 
 
-        //measure the current turning speed of the module
-        currentTurnVelocity = ModuleFunctions.subtractAngles(currentAngle_rad,previousAngle_rad)
-                /(timeSinceUpdate);
 
+
+        myRobot.telemetry.addLine("curr angle: " + Math.toDegrees(currentAngle_rad));
+
+//        angleTurnedSum +=  ModuleFunctions.subtractAngles(currentAngle_rad,
+//                previousAngle_rad);
+
+//        myRobot.telemetry.addLine("turn sum: " + Math.toDegrees(angleTurnedSum));
 
 
         myRobot.telemetry.addLine("curr turn velocity: "
-                + Math.toDegrees(currentTurnVelocity));
-        if(Math.abs(Math.toDegrees(currentTurnVelocity)) > 15){
-            angleLoop.resetI();
+                + Math.toDegrees(getCurrentTurnVelocity()));
+
+
+        turnErrorSum += angleError * elapsedTimeThisUpdate;
+
+        if(Math.abs(Math.toDegrees(getCurrentTurnVelocity())) > 1100){
+            //reset the error sum if going too fast
+            turnErrorSum = 0;
         }
 
-        double currentDWeight = 0;//angleLoop.calculateDWeight(currentTurnVelocity);
 
-
-
-        double i = angleLoop.calculateIWeight(angleError, currentDWeight);
-
-        //calculate the turn power
-        turnPower = angleLoop.calculatePWeight(angleError, currentDWeight) + i;
 
 
 
-        //remember the time to calculate delta the next update
-        previousClockTime = currentClockTimeNanos;
+        //calculate the turn power
+        turnPower = Range.clip((angleError / Math.toRadians(100)),-1,1)
+                * myRobot.getDouble("p");
+        turnPower += turnErrorSum * myRobot.getDouble("i");
+
+
+        turnPower *= Range.clip(Math.abs(angleError)/Math.toRadians(5),0,1);
+
         //remember the angle
         previousAngle_rad = currentAngle_rad;
 
-
-
-
-
         //don't go until we get to the target position
-        if(Math.abs(angleError) > Math.toRadians(15)){
+        if(Math.abs(angleError) > Math.toRadians(20)){
             wheelPower = 0;
         }
-        motor1Power = wheelPower * 1.0 + turnPower * 1.0;
-        motor2Power = -wheelPower * 1.0 + turnPower * 1.0;
+
+        motor1Power = wheelPower * SwerveDriveController.masterScale + turnPower * 1.0;
+        motor2Power = -wheelPower * SwerveDriveController.masterScale + turnPower * 1.0;
 
         maximumPowerScale();
     }
@@ -212,17 +236,17 @@ public class TrackerModule {
     public double getAngleError() {
         return angleError;
     }
-    public double getCurrentErrorSum() {
-        return angleLoop.calculateIWeight(angleError, this.getDWeight());
-    }
+
+
+    /**
+     * Gets the current rotational velocity in rad/s
+     * @return
+     */
     public double getCurrentTurnVelocity() {
         return currentTurnVelocity;
     }
     public double getTurnPower() {
         return turnPower;
-    }
-    public double getDWeight() {
-        return angleLoop.calculateDWeight(currentTurnVelocity);
     }
 
     /**
@@ -231,8 +255,30 @@ public class TrackerModule {
      * - Applies the powers
      */
     public void update() {
+        calculateCurrentModuleRotationVelocity();
         calculatePowersFixed(currentTargetAngle, currentForwardsPower);
         applyPowers();
+    }
+
+
+
+    //the last angle we were at
+    private double previousMeasureVelocityAngle = 0;
+    //last time we updated the measure velocity
+    private long lastMeasureVelocityTime = 0;
+    /**
+     * Measures the current module rotational velocity
+     */
+    private void calculateCurrentModuleRotationVelocity() {
+        long currTime = SystemClock.uptimeMillis();
+        if(currTime - lastMeasureVelocityTime > 40){
+            //measure the current turning speed of the module
+            currentTurnVelocity = ModuleFunctions.subtractAngles(currentAngle_rad,
+                    previousMeasureVelocityAngle)/((currTime - lastMeasureVelocityTime)/1000.0);
+
+            previousMeasureVelocityAngle = currentAngle_rad;
+            lastMeasureVelocityTime = currTime;
+        }
     }
 
     /**
@@ -279,5 +325,16 @@ public class TrackerModule {
         motor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         motor1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         motor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    }
+
+
+
+
+    /**
+     * Gets how far the wheel has spun in CM
+     */
+    public double getForwardsCM() {
+        return ModuleFunctions.calculateForwards(motor1.getCurrentPosition(),
+                motor2.getCurrentPosition());
     }
 }

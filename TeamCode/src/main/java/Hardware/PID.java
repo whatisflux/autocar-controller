@@ -5,9 +5,9 @@ package Hardware;
  */
 public class PID {
 
-    double pValue; //tuned value
-    double iValue; // tuned value
-    double dValue; // tuned value
+    public double pValue; //tuned value
+    public double iValue; // tuned value
+    public double dValue; // tuned value
 
     double pWeight; //what it is sending back in terms of p
     double iWeight;
@@ -44,7 +44,7 @@ public class PID {
     }
 
     //proportional to the product of distance from target AND time
-    public double calculateIWeight (double distanceFromTarget, double dWeight) {
+    public double calculateIWeight(double distanceFromTarget, double dWeight) {
         currentClockTime = System.nanoTime();
 
         //update time is current time minus the last known time

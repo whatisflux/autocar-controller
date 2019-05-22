@@ -21,5 +21,11 @@ public class Main extends Robot{
             swerveDrive.resetEncoders();
         }
 
+        if(gamepad1.left_bumper){
+            swerveDrive.fastMode();
+        }else{
+            swerveDrive.slowMode();
+        }
+
     }
 }

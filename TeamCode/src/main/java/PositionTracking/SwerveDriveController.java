@@ -100,4 +100,12 @@ public class SwerveDriveController {
         moduleRight.resetEncoders();
         moduleLeft.resetEncoders();
     }
+
+    public static double masterScale = 0.2;
+    public void fastMode() {
+        masterScale = 1.0;
+    }
+    public void slowMode(){
+        masterScale = 0.2;
+    }
 }

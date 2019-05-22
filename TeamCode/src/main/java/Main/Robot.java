@@ -4,12 +4,14 @@ import android.os.SystemClock;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
+import net.frogbots.ftcopmodetunercommon.opmode.TunableOpMode;
+
 import PositionTracking.SwerveDriveController;
 
 /**
  * Holds all the hardware data for the robot
  */
-public class Robot extends OpMode {
+public class Robot extends TunableOpMode {
     /**This controls the drive train movement*/
     SwerveDriveController swerveDrive;
 
@@ -33,6 +35,7 @@ public class Robot extends OpMode {
     public void init() {
         //initialize the SwerveDriveController
         swerveDrive = new SwerveDriveController(hardwareMap,this);
+        telemetry.setMsTransmissionInterval(3);
     }
 
 

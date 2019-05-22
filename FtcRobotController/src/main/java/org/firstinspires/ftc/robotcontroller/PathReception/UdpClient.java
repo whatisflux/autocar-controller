@@ -35,6 +35,7 @@ public class UdpClient implements Runnable{
             {
                 DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
                 serverSocket.receive(receivePacket);
+
                 String received = new String( receivePacket.getData());
 //                Log.d("ERROR_LOG","RECEIVED: " + received);
 //                interpretPath("ep         p    ?�   p�        zep?�      �p?�  ?�   p?       �");
