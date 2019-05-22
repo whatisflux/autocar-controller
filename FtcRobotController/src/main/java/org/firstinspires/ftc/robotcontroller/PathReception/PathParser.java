@@ -2,19 +2,23 @@ package org.firstinspires.ftc.robotcontroller.PathReception;
 
 public class PathParser {
     private int current;
-    private String text;
+    private byte[] text;
 
-    PathParser(String serialized) {
+    private static byte EDGE_START_BYTE = 0x65;
+    private static byte WAYPOINT_START_BYTE = 0x70;
+    private static byte EDGE_CLOSED_BYTE = 0x7a;
+
+    PathParser(byte[] serialized) {
         text = serialized;
         current = 0;
     }
 
     Path Parse() {
-        if (peek() != 'e') return null;
+        if (peek() != EDGE_START_BYTE) return null;
         advance(); // Consume e
         Edge edge1 = ConsumeEdge();
 
-        if (peek() != 'e') return null;
+        if (peek() != EDGE_START_BYTE) return null;
         advance(); // Consume e
         Edge edge2 = ConsumeEdge();
 
@@ -24,13 +28,13 @@ public class PathParser {
     private Edge ConsumeEdge() {
         Edge edge = new Edge();
 
-        while (peek() == 'p') {
+        while (peek() == WAYPOINT_START_BYTE) {
             advance(); // Consume p
             Waypoint waypoint = ConsumeWaypoint();
             edge.waypoints.add(waypoint);
         }
 
-        if (peek() == 'z') edge.isClosed = true;
+        if (peek() == EDGE_CLOSED_BYTE) edge.isClosed = true;
 
         return edge;
     }
@@ -45,29 +49,27 @@ public class PathParser {
     private float ConsumeFloat() {
         int floatBits = 0;
         for (int iByte = 0; iByte < 4; iByte++) {
-            char nextByte = advance();
+            byte nextByte = advance();
             floatBits += ((int) nextByte) << (8 * (3 - iByte));
         }
         return Float.intBitsToFloat(floatBits);
     }
 
     private Boolean ConsumeBool() {
-        char tok = advance();
-        if (tok != (char)0) return true;
+        byte tok = advance();
+        if (tok != 0) return true;
         else return false;
     }
 
-    private char advance() {
+    private byte advance() {
         if (!isAtEnd()) current++;
         return previous();
     }
-    private char peek() {
-        return text.charAt(current);
-    }
-    private char previous() {
-        return text.charAt(current - 1);
+    private byte peek() { return text[current]; }
+    private byte previous() {
+        return text[current-1];
     }
     private Boolean isAtEnd() {
-        return current == text.length() - 1;
+        return current == text.length - 1;
     }
 }
