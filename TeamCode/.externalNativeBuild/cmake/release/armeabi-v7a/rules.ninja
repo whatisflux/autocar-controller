@@ -42,7 +42,11 @@ rule CXX_SHARED_LIBRARY_LINKER__native-lib
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
+<<<<<<< HEAD
   command = /Users/dalejacobs/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake -H/SP/autocar-controller/TeamCode -B/SP/autocar-controller/TeamCode/.externalNativeBuild/cmake/release/armeabi-v7a
+=======
+  command = C:\Users\Peter\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\cmake.exe -HC:\Physics\autocar-controller\TeamCode -BC:\Physics\autocar-controller\TeamCode\.externalNativeBuild\cmake\release\armeabi-v7a
+>>>>>>> 0368ffed59bca4a12f889088508490f96f82ab63
   description = Re-running CMake...
   generator = 1
 

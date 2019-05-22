@@ -1,5 +1,6 @@
 {
   "buildFiles": [
+<<<<<<< HEAD
     "/Users/dalejacobs/Library/Android/sdk/ndk-bundle/build/cmake/android.toolchain.cmake",
     "/Users/dalejacobs/Library/Android/sdk/ndk-bundle/build/cmake/platforms.cmake",
     "/SP/autocar-controller/TeamCode/CMakeLists.txt"
@@ -10,18 +11,39 @@
   "libraries": {
     "native-lib-Debug-armeabi-v7a": {
       "buildCommand": "/Users/dalejacobs/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake --build /SP/autocar-controller/TeamCode/.externalNativeBuild/cmake/debug/armeabi-v7a --target native-lib",
+=======
+    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\platforms.cmake",
+    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\android.toolchain.cmake",
+    "C:\\Physics\\autocar-controller\\TeamCode\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build C:\\Physics\\autocar-controller\\TeamCode\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a --target clean"
+  ],
+  "libraries": {
+    "native-lib-Debug-armeabi-v7a": {
+      "buildCommand": "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build C:\\Physics\\autocar-controller\\TeamCode\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a --target native-lib",
+>>>>>>> 0368ffed59bca4a12f889088508490f96f82ab63
       "buildType": "debug",
       "toolchain": "3931312925",
       "abi": "armeabi-v7a",
       "artifactName": "native-lib",
       "files": [
         {
+<<<<<<< HEAD
           "src": "/SP/autocar-controller/TeamCode/src/main/cpp/native-lib.cpp",
           "flags": "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mfpu=vfpv3-d16 -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -std=gnu++11 -O0 -fno-limit-debug-info  -fPIC  ",
           "workingDirectory": "/SP/autocar-controller/TeamCode/.externalNativeBuild/cmake/debug/armeabi-v7a"
         }
       ],
       "output": "/SP/autocar-controller/TeamCode/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so"
+=======
+          "src": "C:\\Physics\\autocar-controller\\TeamCode\\src\\main\\cpp\\native-lib.cpp",
+          "flags": "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mfpu=vfpv3-d16 -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -std=gnu++11 -O0 -fno-limit-debug-info  -fPIC  ",
+          "workingDirectory": "C:\\Physics\\autocar-controller\\TeamCode\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a"
+        }
+      ],
+      "output": "C:\\Physics\\autocar-controller\\TeamCode\\build\\intermediates\\cmake\\debug\\obj\\armeabi-v7a\\libnative-lib.so"
+>>>>>>> 0368ffed59bca4a12f889088508490f96f82ab63
     }
   },
   "toolchains": {

@@ -5,12 +5,14 @@
 #include <cmath>
 #include <sstream>
 #include "opencv2/opencv.hpp"
+<<<<<<< HEAD
 #include <android/log.h>
 
+=======
+>>>>>>> 0368ffed59bca4a12f889088508490f96f82ab63
 
 using namespace cv;
 using namespace std;
-
 
 extern "C"
 JNIEXPORT void JNICALL
@@ -31,7 +33,11 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
         (double) debug1, (double) debug2, (double) debug3);
 
 
+<<<<<<< HEAD
     const double scaleSize = 9;
+=======
+    const double scaleSize = 8;
+>>>>>>> 0368ffed59bca4a12f889088508490f96f82ab63
 
 
     //let's not care about the alpha channel

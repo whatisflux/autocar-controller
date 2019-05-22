@@ -1,0 +1,5 @@
+# ninja log v5
+1	2091	5799969270377308	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	1fe2bb8e230c586d
+2095	2291	5799969272615314	C:/Physics/autocar-controller/FtcRobotController/build/intermediates/cmake/debug/obj/x86/libnative-lib.so	cb55056c2a06bff7
+5	2072	5799970347313127	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	1fe2bb8e230c586d
+2072	2215	5799970349031462	C:/Physics/autocar-controller/FtcRobotController/build/intermediates/cmake/debug/obj/x86/libnative-lib.so	cb55056c2a06bff7

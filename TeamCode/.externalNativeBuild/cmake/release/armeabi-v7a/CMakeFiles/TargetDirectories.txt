@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 /SP/autocar-controller/TeamCode/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/rebuild_cache.dir
 /SP/autocar-controller/TeamCode/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/edit_cache.dir
 /SP/autocar-controller/TeamCode/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/native-lib.dir
+=======
+C:/Physics/autocar-controller/TeamCode/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/native-lib.dir
+C:/Physics/autocar-controller/TeamCode/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Physics/autocar-controller/TeamCode/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+>>>>>>> 0368ffed59bca4a12f889088508490f96f82ab63

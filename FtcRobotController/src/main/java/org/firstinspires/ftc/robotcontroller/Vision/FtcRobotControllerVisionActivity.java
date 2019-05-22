@@ -1,11 +1,14 @@
 package org.firstinspires.ftc.robotcontroller.Vision;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.SeekBar;
 
 import com.qualcomm.ftcrobotcontroller.R;
 
+import org.firstinspires.ftc.robotcontroller.PathReception.PathInterpreter;
+import org.firstinspires.ftc.robotcontroller.Server.ImageCommunication;
 import org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity;
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
@@ -25,9 +28,26 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
      * Use this to access the instance data because it is set in on create
      */
     public static FtcRobotControllerVisionActivity linkToInstance;
+
+
+    /**
+     * The rgb image
+     */
     Mat mRgba;
 
+
     JavaCameraView javaCameraView;
+
+
+    /**
+     * Use this to send the image to craig
+     */
+    private ImageCommunication imageCommunication;
+
+    /**
+     * Deals with Craig's data coming in
+     */
+    private PathInterpreter pathInterpreter;
 
     boolean loadedVision = false;
 
@@ -81,6 +101,10 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         Vision.readBallPattern(mRgba.getNativeObjAddr(),debugBar1.getProgress(),
                 debugBar2.getProgress(), debugBar3.getProgress());
 
+
+
+        imageCommunication.sendImage(mRgba);
+
         return mRgba;
     }
 
@@ -91,7 +115,6 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
     SeekBar debugBar1;
     SeekBar debugBar2;
     SeekBar debugBar3;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -107,7 +130,11 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         debugBar1 = (SeekBar) findViewById(R.id.seekBar1);
         debugBar2 = (SeekBar) findViewById(R.id.seekBar2);
         debugBar3 = (SeekBar) findViewById(R.id.seekBar3);
-
+        Log.d("ERROR_LOG", "initializing");
+        //initialize the image communication
+        imageCommunication = new ImageCommunication();
+        pathInterpreter = new PathInterpreter();
+        Log.d("ERROR_LOG", "done");
 
     }
 

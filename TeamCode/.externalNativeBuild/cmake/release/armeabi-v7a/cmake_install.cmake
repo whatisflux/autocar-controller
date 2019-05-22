@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Install script for directory: /SP/autocar-controller/TeamCode
+=======
+# Install script for directory: C:/Physics/autocar-controller/TeamCode
+>>>>>>> 0368ffed59bca4a12f889088508490f96f82ab63
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +49,9 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
+<<<<<<< HEAD
 file(WRITE "/SP/autocar-controller/TeamCode/.externalNativeBuild/cmake/release/armeabi-v7a/${CMAKE_INSTALL_MANIFEST}"
+=======
+file(WRITE "C:/Physics/autocar-controller/TeamCode/.externalNativeBuild/cmake/release/armeabi-v7a/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> 0368ffed59bca4a12f889088508490f96f82ab63
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
