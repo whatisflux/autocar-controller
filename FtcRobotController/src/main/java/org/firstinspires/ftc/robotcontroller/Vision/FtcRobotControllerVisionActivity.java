@@ -3,6 +3,7 @@ package org.firstinspires.ftc.robotcontroller.Vision;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.SeekBar;
 
 import com.qualcomm.ftcrobotcontroller.R;
 
@@ -97,7 +98,8 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         //get the inputFrame data
         mRgba = inputFrame.rgba();
 
-        Vision.readBallPattern(mRgba.getNativeObjAddr());
+        Vision.readBallPattern(mRgba.getNativeObjAddr(),debugBar1.getProgress(),
+                debugBar2.getProgress(), debugBar3.getProgress());
 
 
 
@@ -110,7 +112,9 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
 
 
 
-
+    SeekBar debugBar1;
+    SeekBar debugBar2;
+    SeekBar debugBar3;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -123,12 +127,14 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         javaCameraView.setCvCameraViewListener(this);
 
 
+        debugBar1 = (SeekBar) findViewById(R.id.seekBar1);
+        debugBar2 = (SeekBar) findViewById(R.id.seekBar2);
+        debugBar3 = (SeekBar) findViewById(R.id.seekBar3);
         Log.d("ERROR_LOG", "initializing");
         //initialize the image communication
         imageCommunication = new ImageCommunication();
         pathInterpreter = new PathInterpreter();
         Log.d("ERROR_LOG", "done");
-
 
     }
 

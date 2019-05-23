@@ -143,10 +143,6 @@ public class TrackerModule {
 
 
         angleError = ModuleFunctions.subtractAngles(rawTargetAngle,currentAngle_rad);
-        angleError -= (getCurrentTurnVelocity() / Math.toRadians(300)) * Math.toRadians(30)
-            * myRobot.getDouble("d");
-
-
         //we should never turn more than 180 degrees, just reverse the direction
         while (Math.abs(angleError) > Math.toRadians(90)) {
             if(rawTargetAngle > currentAngle_rad){
@@ -157,6 +153,11 @@ public class TrackerModule {
             wheelPower *= -1;
             angleError = ModuleFunctions.subtractAngles(rawTargetAngle,currentAngle_rad);
         }
+
+        double angleErrorVelocity = angleError -
+                ((getCurrentTurnVelocity() / Math.toRadians(300)) * Math.toRadians(30)
+                        * myRobot.getDouble("d"));
+
 
 
 
@@ -169,7 +170,6 @@ public class TrackerModule {
 //                previousAngle_rad);
 
 //        myRobot.telemetry.addLine("turn sum: " + Math.toDegrees(angleTurnedSum));
-
 
         myRobot.telemetry.addLine("curr turn velocity: "
                 + Math.toDegrees(getCurrentTurnVelocity()));
@@ -186,8 +186,9 @@ public class TrackerModule {
 
 
 
+
         //calculate the turn power
-        turnPower = Range.clip((angleError / Math.toRadians(100)),-1,1)
+        turnPower = Range.clip((angleErrorVelocity / Math.toRadians(100)),-1,1)
                 * myRobot.getDouble("p");
         turnPower += turnErrorSum * myRobot.getDouble("i");
 

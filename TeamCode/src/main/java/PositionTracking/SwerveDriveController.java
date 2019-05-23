@@ -83,14 +83,13 @@ public class SwerveDriveController {
 
 
         //now we can ask them to calculate the drive train direction
-        moduleRight.setDriveTrainDirection(forwardsPower,sidewaysPower,amountTurn);
-        moduleLeft.setDriveTrainDirection(forwardsPower,sidewaysPower,amountTurn);
+        moduleRight.setDriveTrainDirection(forwardsPower,0,amountTurn);
+        moduleLeft.setDriveTrainDirection(forwardsPower,0,amountTurn);
 
 
         //update the modules
         moduleRight.update();
         moduleLeft.update();
-
     }
 
     /**

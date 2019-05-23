@@ -50,7 +50,7 @@ public class Robot extends TunableOpMode {
      * Allows the user to control the swerve drive movement
      */
     public void controlMovement() {
-        swerveDrive.setAmountTurn(-gamepad1.left_stick_x * 0.3);
+        swerveDrive.setAmountTurn(-gamepad1.left_stick_x);
         swerveDrive.setForwardsPower(gamepad1.right_stick_y);
         swerveDrive.setSidewaysPower(gamepad1.right_stick_x);
     }
