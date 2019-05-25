@@ -26,6 +26,7 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
     //get our img by converting the long into a pointer
     Mat& img = *(Mat*) addrRgba;
     Mat imgCanny;
+    flip(img, img, -1);
 
 
 
@@ -100,9 +101,9 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
     //shiftedH.copyTo(img);
 
     //this is what we will use for processing stuff (at lower resolution)
-    Mat processingImage;
+    //Mat processingImage;
 
     //rescale the main image into the processing image. scaleSize of 4 = 1/16 the size
-    resize(img, processingImage, Size(), 1/scaleSize, 1/scaleSize, INTER_CUBIC);
+    //resize(img, processingImage, Size(), 1/scaleSize, 1/scaleSize, INTER_CUBIC);
 
 }

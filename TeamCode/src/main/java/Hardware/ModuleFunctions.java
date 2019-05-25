@@ -11,7 +11,7 @@ public class ModuleFunctions {
     //how many centimeters the wheel output goes for 1 encoder tick
     private static final double CM_PER_TICK_SCALE_FACTOR = 0.005;
     //converts a delta in encoder ticks to radians
-    private static double RADS_PER_TICK_SCALE_FACTOR = 0.005257015819258701;
+    private static double RADS_PER_TICK_SCALE_FACTOR = 0.00520514246728794903279892488916;
 
     /**
      * calculates angle error
@@ -59,4 +59,13 @@ public class ModuleFunctions {
         return (encoder1-encoder2) * CM_PER_TICK_SCALE_FACTOR;
     }
 
+    /**
+     * Calculates the amount a wheel turns on it's output (ticks)
+     * @param encoder1 reading of encoder 1
+     * @param encoder2 reading of encoder 2
+     * @return the amount of forwards amount
+     */
+    public static double calculateForwardsTicks(double encoder1, double encoder2) {
+        return (encoder1-encoder2);
+    }
 }

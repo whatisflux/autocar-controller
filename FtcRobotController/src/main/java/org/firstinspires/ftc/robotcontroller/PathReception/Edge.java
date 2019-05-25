@@ -10,4 +10,12 @@ public class Edge {
         waypoints = new ArrayList<>();
         isClosed = false;
     }
+
+    /**
+     * Converts to a string
+     * @return a string
+     */
+    public String toString(){
+        return waypoints.toString() + " closed: " + isClosed;
+    }
 }

@@ -16,6 +16,7 @@ import java.util.concurrent.Semaphore;
  * Sends the udp data
  */
 public class UdpServer implements Runnable{
+
     //the port of the client
     private final int clientPort;
     public static boolean kill = false;

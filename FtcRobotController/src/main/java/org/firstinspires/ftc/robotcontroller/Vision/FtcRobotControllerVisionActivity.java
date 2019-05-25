@@ -1,13 +1,14 @@
 package org.firstinspires.ftc.robotcontroller.Vision;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.SeekBar;
 
 import com.qualcomm.ftcrobotcontroller.R;
 
-import org.firstinspires.ftc.robotcontroller.PathReception.PathInterpreter;
+import org.firstinspires.ftc.robotcontroller.PathReception.FinalPathWrapper;
 import org.firstinspires.ftc.robotcontroller.Server.ImageCommunication;
 import org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity;
 import org.opencv.android.BaseLoaderCallback;
@@ -47,7 +48,7 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
     /**
      * Deals with Craig's data coming in
      */
-    private PathInterpreter pathInterpreter;
+    private FinalPathWrapper pathInterpreter;
 
     boolean loadedVision = false;
 
@@ -88,6 +89,10 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
 
 
 
+    //last send time
+    private long lastSendTime = 0;
+
+
     /**
      * This runs all our vision processing code and is called by the opencv camera listener
      * @param inputFrame mat (image) from the camera
@@ -103,7 +108,12 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
 
 
 
-        imageCommunication.sendImage(mRgba);
+        long currTime = SystemClock.uptimeMillis();
+
+        if(currTime - lastSendTime > 1000/20){
+            imageCommunication.sendImage(mRgba);
+            lastSendTime = currTime;
+        }
 
         return mRgba;
     }
@@ -133,7 +143,7 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         Log.d("ERROR_LOG", "initializing");
         //initialize the image communication
         imageCommunication = new ImageCommunication();
-        pathInterpreter = new PathInterpreter();
+        pathInterpreter = new FinalPathWrapper();
         Log.d("ERROR_LOG", "done");
 
     }

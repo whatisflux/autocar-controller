@@ -10,4 +10,10 @@ public class Waypoint {
         this.y = y;
         this.insideIsLeft = insideIsLeft;
     }
+
+
+
+    public String toString(){
+        return "X: " + x + " Y: " + y + " IIL: " + insideIsLeft;
+    }
 }

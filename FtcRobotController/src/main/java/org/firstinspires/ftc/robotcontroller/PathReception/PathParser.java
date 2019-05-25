@@ -1,5 +1,10 @@
 package org.firstinspires.ftc.robotcontroller.PathReception;
 
+
+import org.firstinspires.ftc.robotcontroller.JavaSucks.ByteUtil;
+
+import java.util.Arrays;
+
 public class PathParser {
     private int current;
     private byte[] text;
@@ -8,17 +13,24 @@ public class PathParser {
     private static byte WAYPOINT_START_BYTE = 0x70;
     private static byte EDGE_CLOSED_BYTE = 0x7a;
 
-    PathParser(byte[] serialized) {
+
+    public PathParser(byte[] serialized) {
         text = serialized;
         current = 0;
     }
 
-    Path Parse() {
-        if (peek() != EDGE_START_BYTE) return null;
+    public Path Parse() {
+//        System.out.println(Arrays.toString(text));
+
+        if (peek() != EDGE_START_BYTE) {
+            throw new Error("Expected 'e', found " + peek());
+        }
         advance(); // Consume e
         Edge edge1 = ConsumeEdge();
 
-        if (peek() != EDGE_START_BYTE) return null;
+        if (peek() != EDGE_START_BYTE) {
+            throw new Error("Expected 'e', found " + peek());
+        }
         advance(); // Consume e
         Edge edge2 = ConsumeEdge();
 
@@ -34,7 +46,10 @@ public class PathParser {
             edge.waypoints.add(waypoint);
         }
 
-        if (peek() == EDGE_CLOSED_BYTE) edge.isClosed = true;
+        if (peek() == EDGE_CLOSED_BYTE) {
+            advance();
+            edge.isClosed = true;
+        }
 
         return edge;
     }
@@ -46,15 +61,25 @@ public class PathParser {
         return new Waypoint(x, y, insideIsLeft);
     }
 
+    /**
+     * Consumes a float
+     * @return boolean
+     */
     private float ConsumeFloat() {
         int floatBits = 0;
         for (int iByte = 0; iByte < 4; iByte++) {
             byte nextByte = advance();
-            floatBits += ((int) nextByte) << (8 * (3 - iByte));
+            System.out.println("Byte " + iByte + ": " + (int) nextByte);
+            floatBits += ((ByteUtil.toUnsignedInt(nextByte))) << (8 * (3 - iByte));
         }
-        return Float.intBitsToFloat(floatBits);
+        float val =  Float.intBitsToFloat(floatBits);
+        return val;
     }
 
+    /**
+     * Consumes a bool
+     * @return boolean
+     */
     private Boolean ConsumeBool() {
         byte tok = advance();
         if (tok != 0) return true;
@@ -65,7 +90,9 @@ public class PathParser {
         if (!isAtEnd()) current++;
         return previous();
     }
-    private byte peek() { return text[current]; }
+    private byte peek() {
+        return text[current];
+    }
     private byte previous() {
         return text[current-1];
     }

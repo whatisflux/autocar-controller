@@ -32,7 +32,7 @@ public class FilteredMotor {
      * @param power the power you want to go
      */
     public void setPower(double power){
-        if(Math.abs(power - lastPower) > 0.001 ||
+        if(Math.abs(power - lastPower) > 0.03 ||
                 (power == 0 && lastPower != 0)){
             myMotor.setPower(power);//set the power of the motor
             lastPower = power;

@@ -39,6 +39,9 @@ public class ImageCommunication {
         Imgproc.resize( mRgba, smallImage, size );
 
 
+
+
+
 //        Log.d("ERROR_LOG: ","rows: " + smallImage.rows() + " cols: " + smallImage.cols());
 
         int c = 0;
@@ -54,7 +57,7 @@ public class ImageCommunication {
                     //get the color
                     double[] color = smallImage.get(y,x + i);
 
-                    if((color[0] + color[1] + color[2])/3 > 150){
+                    if((color[0]) != 0){
 //                        thisByte.append("1");
                         theByte += (1 << i);
                     }else{

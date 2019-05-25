@@ -10,8 +10,8 @@ import Main.Robot;
 public class SwerveDriveController {
 
     //all the wheel modules
-    private TrackerModule moduleRight;
-    private TrackerModule moduleLeft;
+    public TrackerModule moduleRight;
+    public TrackerModule moduleLeft;
 
     /**The amount of overall power you want out of the swerve drive*/
     private double forwardsPower = 0;
@@ -69,23 +69,21 @@ public class SwerveDriveController {
      * Call this every loop update
      */
     public void update(){
-        myRobot.telemetry.addLine("amount turn: " + amountTurn);
-        myRobot.telemetry.addLine("currTargetAngle: " + moduleLeft.getCurrentTargetAngle_rad());
-
-        myRobot.telemetry.addLine("current angle: " + Math.toDegrees(moduleLeft.getCurrentAngle_rad()));
-
-        myRobot.telemetry.addLine("Encoder1: " + moduleLeft.motor1.getCurrentPosition());
-        myRobot.telemetry.addLine("Encoder2: " + moduleLeft.motor2.getCurrentPosition());
-
-
-
+//        myRobot.telemetry.addLine("amount turn: " + amountTurn);
+//        myRobot.telemetry.addLine("currTargetAngle: " + moduleLeft.getCurrentTargetAngle_rad());
+//
+//        myRobot.telemetry.addLine("current angle: " + Math.toDegrees(moduleLeft.getCurrentAngle_rad()));
+//
+//        myRobot.telemetry.addLine("Encoder1: " + moduleLeft.motor1.getCurrentPosition());
+//        myRobot.telemetry.addLine("Encoder2: " + moduleLeft.motor2.getCurrentPosition());
 
 
 
         //now we can ask them to calculate the drive train direction
-        moduleRight.setDriveTrainDirection(forwardsPower,0,amountTurn);
-        moduleLeft.setDriveTrainDirection(forwardsPower,0,amountTurn);
-
+//        moduleRight.setDriveTrainDirection(forwardsPower,0,amountTurn);
+//        moduleLeft.setDriveTrainDirection(forwardsPower,0,amountTurn);
+        moduleRight.setDriveTrainDirection(forwardsPower,sidewaysPower,amountTurn);
+        moduleLeft.setDriveTrainDirection(forwardsPower,sidewaysPower,amountTurn);
 
         //update the modules
         moduleRight.update();
@@ -102,7 +100,7 @@ public class SwerveDriveController {
 
     public static double masterScale = 0.2;
     public void fastMode() {
-        masterScale = 1.0;
+        masterScale = 0.7;
     }
     public void slowMode(){
         masterScale = 0.2;

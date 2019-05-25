@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.util.Range;
 
 import Hardware.FilteredMotor;
 import Hardware.ModuleFunctions;
+import Main.PiecewiseFunction;
 import Main.Robot;
 
 /**
@@ -156,23 +157,9 @@ public class TrackerModule {
 
         double angleErrorVelocity = angleError -
                 ((getCurrentTurnVelocity() / Math.toRadians(300)) * Math.toRadians(30)
-                        * myRobot.getDouble("d"));
+                        * 0.22);//myRobot.getDouble("d"));
 
 
-
-
-
-
-
-        myRobot.telemetry.addLine("curr angle: " + Math.toDegrees(currentAngle_rad));
-
-//        angleTurnedSum +=  ModuleFunctions.subtractAngles(currentAngle_rad,
-//                previousAngle_rad);
-
-//        myRobot.telemetry.addLine("turn sum: " + Math.toDegrees(angleTurnedSum));
-
-        myRobot.telemetry.addLine("curr turn velocity: "
-                + Math.toDegrees(getCurrentTurnVelocity()));
 
 
         turnErrorSum += angleError * elapsedTimeThisUpdate;
@@ -188,12 +175,12 @@ public class TrackerModule {
 
 
         //calculate the turn power
-        turnPower = Range.clip((angleErrorVelocity / Math.toRadians(100)),-1,1)
-                * myRobot.getDouble("p");
-        turnPower += turnErrorSum * myRobot.getDouble("i");
+        turnPower = Range.clip((angleErrorVelocity / Math.toRadians(15)),-1,1)
+                * 0.05;//myRobot.getDouble("p");
+        turnPower += turnErrorSum * 0.075;//myRobot.getDouble("i");
 
 
-        turnPower *= Range.clip(Math.abs(angleError)/Math.toRadians(5),0,1);
+        turnPower *= Range.clip(Math.abs(angleError)/Math.toRadians(2),0,1);
 
         //remember the angle
         previousAngle_rad = currentAngle_rad;
@@ -202,6 +189,92 @@ public class TrackerModule {
         if(Math.abs(angleError) > Math.toRadians(20)){
             wheelPower = 0;
         }
+
+        motor1Power = wheelPower * SwerveDriveController.masterScale + turnPower * 1.0;
+        motor2Power = -wheelPower * SwerveDriveController.masterScale + turnPower * 1.0;
+
+        maximumPowerScale();
+    }
+
+
+
+
+
+
+
+
+
+
+    public static String turnCurveVisual =
+                    "                   1" +
+                    "                    " +
+                    "                 1  " +
+                    "                    " +
+                    "             1      " +
+                    "         1          " +
+                    " 1  1               " +
+                    "                    " +
+                    "1                   ";
+    public static PiecewiseFunction turnCurve = new PiecewiseFunction(turnCurveVisual);
+
+
+
+
+
+    /**
+     * Sets powers to motors to hit target angle/wheel power
+     */
+    public void calculatePowersWithTurn(double rawTargetAngle, double wheelPower) {
+        if(reversed){wheelPower *= -1;}//reversed this if we are reversed
+        currentTimeNanos = SystemClock.elapsedRealtimeNanos();
+        elapsedTimeThisUpdate = (currentTimeNanos - lastTimeNanos)/1e9;
+
+//        if(elapsedTimeThisUpdate < 0.003){
+//            return;//don't do anything if it is too fast
+//        }
+        //remember the time to calculate delta the next update
+        lastTimeNanos = currentTimeNanos;
+        //if there has been an outrageously long amount of time, don't bother
+        if(elapsedTimeThisUpdate > 1){
+            return;
+        }
+
+
+        //calculate our current angle
+        currentAngle_rad = ModuleFunctions.calculateAngle(motor1.getCurrentPosition(),
+                motor2.getCurrentPosition());
+
+
+        angleError = ModuleFunctions.subtractAngles(rawTargetAngle,currentAngle_rad);
+        //we should never turn more than 180 degrees, just reverse the direction
+        while (Math.abs(angleError) > Math.toRadians(90)) {
+            if(rawTargetAngle > currentAngle_rad){
+                rawTargetAngle -= Math.toRadians(180);
+            }else{
+                rawTargetAngle += Math.toRadians(180);
+            }
+            wheelPower *= -1;
+            angleError = ModuleFunctions.subtractAngles(rawTargetAngle,currentAngle_rad);
+        }
+
+
+
+        turnPower = (turnCurve.getVal(Range.clip(Math.abs(angleError)/Math.toRadians(90),
+                0.05,1)) * (angleError > 0 ? 1 : -1)) * 0.25;
+        turnPower *= Range.clip(Math.abs(angleError)/Math.toRadians(0.5),0,1);
+
+
+
+
+        //remember the angle
+        previousAngle_rad = currentAngle_rad;
+
+        //don't go until we get to the target position
+        if(Math.abs(angleError) > Math.toRadians(25)){
+            wheelPower = 0;
+        }
+
+        turnPower *= Range.clip(1.0-Math.abs(wheelPower/0.3),0.3,1.0);
 
         motor1Power = wheelPower * SwerveDriveController.masterScale + turnPower * 1.0;
         motor2Power = -wheelPower * SwerveDriveController.masterScale + turnPower * 1.0;
@@ -258,6 +331,7 @@ public class TrackerModule {
     public void update() {
         calculateCurrentModuleRotationVelocity();
         calculatePowersFixed(currentTargetAngle, currentForwardsPower);
+//        calculatePowersWithTurn(currentTargetAngle, currentForwardsPower);
         applyPowers();
     }
 

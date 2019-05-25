@@ -9,4 +9,14 @@ public class Path {
         this.edge1 = edge1;
         this.edge2 = edge2;
     }
+
+
+    /**
+     * Converts to a string
+     * @return
+     */
+    public String toString(){
+        return "edge1: " + edge1.toString() + " edge2: " + edge2.toString();
+    }
+
 }
