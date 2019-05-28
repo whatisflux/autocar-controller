@@ -30,6 +30,9 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
 
 
 
+
+
+
     __android_log_print(ANDROID_LOG_VERBOSE, "whatIsFlux", "ERROR_LOG: debug 1: %lf debug2: %lf debug3: %lf",
         (double) debug1, (double) debug2, (double) debug3);
 

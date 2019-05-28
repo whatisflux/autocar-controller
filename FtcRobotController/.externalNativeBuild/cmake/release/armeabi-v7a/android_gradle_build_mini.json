@@ -1,21 +1,18 @@
 {
   "buildFiles": [
+    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\platforms.cmake",
+    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\android.toolchain.cmake",
     "C:\\RoverRuckus\\Physics\\autocar-controller\\TeamCode\\CMakeLists.txt"
   ],
   "cleanCommands": [
-    "C:\\Users\\peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\.externalNativeBuild\\cmake\\release\\armeabi-v7a --target clean"
+    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\.externalNativeBuild\\cmake\\release\\armeabi-v7a --target clean"
   ],
   "libraries": {
     "native-lib-Release-armeabi-v7a": {
       "artifactName": "native-lib",
-      "buildCommand": "C:\\Users\\peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\.externalNativeBuild\\cmake\\release\\armeabi-v7a --target native-lib",
+      "buildCommand": "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\.externalNativeBuild\\cmake\\release\\armeabi-v7a --target native-lib",
       "abi": "armeabi-v7a",
       "output": "C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\build\\intermediates\\cmake\\release\\obj\\armeabi-v7a\\libnative-lib.so"
-    },
-    "lib_opencv-Release-armeabi-v7a": {
-      "artifactName": "lib_opencv",
-      "abi": "armeabi-v7a",
-      "output": "C:\\RoverRuckus\\Physics\\autocar-controller\\TeamCode\\src\\main\\jniLibs\\armeabi-v7a\\libopencv_java3.so"
     }
   }
 }

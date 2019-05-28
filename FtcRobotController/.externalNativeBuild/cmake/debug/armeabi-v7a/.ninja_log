@@ -1,7 +1,3 @@
 # ninja log v5
-1	1759	580768777	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	e492a81c0e528087
-1763	1922	580768777	C:/RoverRuckus/Physics/autocar-controller/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	1cf52c8534dbaeea
-4	3033	580768824	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	e492a81c0e528087
-3033	3189	580768824	C:/RoverRuckus/Physics/autocar-controller/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	1cf52c8534dbaeea
-4	1789	580769084	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	e492a81c0e528087
-1789	1949	580769084	C:/RoverRuckus/Physics/autocar-controller/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	1cf52c8534dbaeea
+1	1670	580772769	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	e492a81c0e528087
+1674	1816	580772769	C:/RoverRuckus/Physics/autocar-controller/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	1cf52c8534dbaeea
