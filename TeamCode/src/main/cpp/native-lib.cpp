@@ -20,12 +20,10 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
 
 
 
-
     //get our img by converting the long into a pointer
     Mat& img = *(Mat*) addrRgba;
     Mat imgCanny;
     flip(img, img, -1);
-
 
 
 
