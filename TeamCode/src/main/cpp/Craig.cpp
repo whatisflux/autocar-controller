@@ -31,9 +31,10 @@ std::vector<Point2f> Craig::processImage(cv::Mat &mat)
 
     for (int y = height - 1; y >= height - maxScanHeight; y -= scanHeight)
     {
+        if (y < scanHeight) break;
         int xsum = 0;
         int xcount = 0;
-        for (int h = y; h >= y - scanHeight; y++)
+        for (int h = y; h >= y - scanHeight; y--)
         {
             int lastFound = -walkSize;
             for (int x = 0; x < width; x++)

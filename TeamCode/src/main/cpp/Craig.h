@@ -6,7 +6,9 @@
 #define AUTOCAR_CRAIG_H
 
 
-#include <opencv2/opencv.hpp>
+#include <opencv2/core/types.hpp>
+#include <opencv2/core/Mat.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <vector>
 
 using namespace cv;

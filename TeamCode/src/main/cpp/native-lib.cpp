@@ -1,10 +1,12 @@
 #include <jni.h>
 #include <string>
 #include "opencv2/core.hpp"
+#include <opencv2/core/types.hpp>
+#include <opencv2/core/Mat.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <vector>
 #include <cmath>
 #include <sstream>
-#include "opencv2/opencv.hpp"
 #include "Craig.h"
 
 #include <android/log.h>
@@ -85,12 +87,12 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
     thresh.copyTo(img);
 
 
-    Craig c = Craig();
-    vector<Point2f> points = c.processImage(img);
+    vector<Point2f> points(1);
+    points.push_back(Point2f(2.5,3.5));
+    Craig c;
+    points = c.processImage(img);
 
     /////////////////////////NOW WE NEED TO RETURN THE ARRAYS//////////////////////////////
-    jdouble *xPositionsLink = env->GetDoubleArrayElements(jniXPositions,&isCopyX);
-    jdouble *yPositionsLink = env->GetDoubleArrayElements(jniYPositions,&isCopyY);
     jboolean isCopyX;
     jdouble *xPositionsLink = env->GetDoubleArrayElements(jniXPositions,&isCopyX);
     jboolean isCopyY;
@@ -98,20 +100,14 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
 
 
 
-    for(int i = 0; i < myMineralScorer->mineralPoints.size(); i ++){
-        xPositionsLink[i] = (jdouble) myMineralScorer->mineralPoints.at(i).x;
-        yPositionsLink[i] = (jdouble) myMineralScorer->mineralPoints.at(i).y;
+    for(int i = 0; i < points.size(); i++){
+        xPositionsLink[i] = points[i].x;
+        yPositionsLink[i] = points[i].y;
     }
     //now we need to release the elements
     env->ReleaseDoubleArrayElements(jniXPositions,xPositionsLink,0);
     env->ReleaseDoubleArrayElements(jniYPositions,yPositionsLink,0);
 
-    ////////////////////////////////////////////////////////////////////////////////////////
-    for(int i = 0; i < points.size(); i ++){
-        xPositionsLink[i] = points.at(i).x;
-        yPositionsLink[i] = points.at(i).y;
-    }
-    env->ReleaseDoubleArrayElements(jniXPositions,xPositionsLink,0);
-    env->ReleaseDoubleArrayElements(jniYPositions,yPositionsLink,0);
+
 
 }

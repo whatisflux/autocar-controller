@@ -116,14 +116,17 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         lastYPosition = LocationVars.worldYPosition;
         lastAngle = LocationVars.worldAngle_rad;
 
-        double[] xPositions = new double[10];
-        double[] yPositions = new double[10];
+        double[] xPositions = new double[300];
+        double[] yPositions = new double[300];
 
 
         Vision.readBallPattern(mRgba.getNativeObjAddr(),debugBar1.getProgress(),
                 debugBar2.getProgress(), debugBar3.getProgress(),xPositions,yPositions);
 
-        allPathPoints = Vision.getCurrentPath();
+        allPathPoints.clear();
+        for(int i = 0; i < xPositions.length; i ++){
+            allPathPoints.add(new PathPoint(xPositions[i],yPositions[i]));
+        }
 
         return mRgba;
     }
