@@ -1,21 +1,21 @@
 {
   "buildFiles": [
-    "C:\\RoverRuckus\\Physics\\autocar-controller\\TeamCode\\CMakeLists.txt"
+    "/home/peter/AutoCar/TeamCode/CMakeLists.txt"
   ],
   "cleanCommands": [
-    "C:\\Users\\peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\.externalNativeBuild\\cmake\\release\\arm64-v8a --target clean"
+    "/home/peter/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/peter/AutoCar/FtcRobotController/.externalNativeBuild/cmake/release/arm64-v8a --target clean"
   ],
   "libraries": {
     "native-lib-Release-arm64-v8a": {
       "artifactName": "native-lib",
-      "buildCommand": "C:\\Users\\peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\.externalNativeBuild\\cmake\\release\\arm64-v8a --target native-lib",
+      "buildCommand": "/home/peter/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/peter/AutoCar/FtcRobotController/.externalNativeBuild/cmake/release/arm64-v8a --target native-lib",
       "abi": "arm64-v8a",
-      "output": "C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\build\\intermediates\\cmake\\release\\obj\\arm64-v8a\\libnative-lib.so"
+      "output": "/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/release/obj/arm64-v8a/libnative-lib.so"
     },
     "lib_opencv-Release-arm64-v8a": {
       "artifactName": "lib_opencv",
       "abi": "arm64-v8a",
-      "output": "C:\\RoverRuckus\\Physics\\autocar-controller\\TeamCode\\src\\main\\jniLibs\\arm64-v8a\\libopencv_java3.so"
+      "output": "/home/peter/AutoCar/TeamCode/src/main/jniLibs/arm64-v8a/libopencv_java3.so"
     }
   }
 }

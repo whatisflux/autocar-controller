@@ -1,21 +1,21 @@
 {
   "buildFiles": [
-    "C:\\RoverRuckus\\Physics\\autocar-controller\\TeamCode\\CMakeLists.txt"
+    "/home/peter/AutoCar/TeamCode/CMakeLists.txt"
   ],
   "cleanCommands": [
-    "C:\\Users\\peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\.externalNativeBuild\\cmake\\debug\\x86 --target clean"
+    "/home/peter/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/peter/AutoCar/FtcRobotController/.externalNativeBuild/cmake/debug/x86 --target clean"
   ],
   "libraries": {
     "lib_opencv-Debug-x86": {
       "artifactName": "lib_opencv",
       "abi": "x86",
-      "output": "C:\\RoverRuckus\\Physics\\autocar-controller\\TeamCode\\src\\main\\jniLibs\\x86\\libopencv_java3.so"
+      "output": "/home/peter/AutoCar/TeamCode/src/main/jniLibs/x86/libopencv_java3.so"
     },
     "native-lib-Debug-x86": {
       "artifactName": "native-lib",
-      "buildCommand": "C:\\Users\\peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\.externalNativeBuild\\cmake\\debug\\x86 --target native-lib",
+      "buildCommand": "/home/peter/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/peter/AutoCar/FtcRobotController/.externalNativeBuild/cmake/debug/x86 --target native-lib",
       "abi": "x86",
-      "output": "C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\build\\intermediates\\cmake\\debug\\obj\\x86\\libnative-lib.so"
+      "output": "/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/debug/obj/x86/libnative-lib.so"
     }
   }
 }

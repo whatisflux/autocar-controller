@@ -3,14 +3,20 @@ package org.firstinspires.ftc.robotcontroller.Server;
 import android.util.Log;
 
 import org.opencv.core.Mat;
+import org.opencv.core.Point;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
+
+import java.util.ArrayList;
 
 import static org.opencv.core.CvType.CV_8UC4;
 
 public class ImageCommunication {
 
     private UdpServer udpServer;
+
+
+    private ArrayList<Point> robotPositions = new ArrayList<Point>();
 
     /**
      * Starts the UdpServer
@@ -36,7 +42,7 @@ public class ImageCommunication {
 
         Mat smallImage = new Mat(height,width,CV_8UC4);
         Size size = new Size(width,height);
-        Imgproc.resize( mRgba, smallImage, size );
+        Imgproc.resize( mRgba, smallImage, size);
 
 
 

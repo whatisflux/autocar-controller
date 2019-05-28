@@ -32,7 +32,7 @@ public class PathPoint {
         double relativeY = (left.y + right.y)/2;
         double distanceAway = Math.hypot(relativeX,relativeY);
         double relativeAngle = Math.atan2(relativeY,-relativeX);
-        this.x = worldXPosition + Math.sin(worldAngle_rad + relativeAngle) * distanceAway;
-        this.y = worldYPosition + Math.cos(worldAngle_rad + relativeAngle) * distanceAway;
+        this.x = worldXPosition + Math.sin(-worldAngle_rad + relativeAngle) * distanceAway;
+        this.y = worldYPosition + Math.cos(-worldAngle_rad + relativeAngle) * distanceAway;
     }
 }

@@ -75,6 +75,9 @@ public class Main extends Robot{
         try{
             ArrayList<PathPoint> allPathPoints = FinalPathWrapper.getCurrentPath();
 
+
+            allPathPoints.add(0,new PathPoint(MyPosition.worldXPosition,MyPosition.worldYPosition));
+
             for(int i = 0; i < allPathPoints.size() - 1; i ++){
                 ComputerDebugging.sendLine(new FloatPoint(allPathPoints.get(i)),
                         new FloatPoint(allPathPoints.get(i+1)));
@@ -97,13 +100,16 @@ public class Main extends Robot{
 
         ArrayList<PathPoint> allPathPoints = FinalPathWrapper.getCurrentPath();
 
-        if(allPathPoints != null &&  !(allPathPoints.size() > 0)){return;}
+        if(allPathPoints != null &&  !(allPathPoints.size() > 1)){return;}
         telemetry.addLine("allPathPoints: " + allPathPoints.toString());
         ArrayList<CurvePoint> allPoints = new ArrayList<>();
 
+
+        allPoints.add(new CurvePoint(MyPosition.worldXPosition,MyPosition.worldYPosition,
+                0.5,0.5,30,Math.toRadians(40),0.5));
         for(int i = 0; i < allPathPoints.size(); i ++){
             allPoints.add(new CurvePoint(allPathPoints.get(i).x,allPathPoints.get(i).y,
-                    1.0,1.0,30,Math.toRadians(40),0.5));
+                    0.5,0.5,30,Math.toRadians(40),0.5));
         }
 
 

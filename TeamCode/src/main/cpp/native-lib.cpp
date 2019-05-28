@@ -53,44 +53,43 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
     Mat sat = channels[1];
     Mat val = channels[2];
 
-    //shift Hue +100 (-80) to get good contrast
-    Mat shiftedH = hue.clone();
-    //78 is good debug1 value
-    int shift = (/*((double) debug3)*/90.0 * 1.80); // in openCV hue values go from 0 to 180 (so have to be doubled to get to 0 .. 360) because of byte range from 0 to 255
-    for(int j=0; j<shiftedH.rows; ++j)
-    {
-        for(int i=0; i<shiftedH.cols; ++i)
-        {
-            shiftedH.at<unsigned char>(j,i) = (shiftedH.at<unsigned char>(j,i) + shift)%180;
-        }
-    }
-
 
 
 
 
     //threshold
-    int h_thresh_value = ((double) debug1) * 2.5;   //85
-    int s_thresh_value = ((double) debug2) * 2.5;   //50
-    int v_thresh_value = ((double) debug3) * 2.5;   //67
+    int h_thresh_value = ((double) debug1) * 1.7;   //85
+    int s_thresh_value = ((double) debug2) * 2.54;   //50
+    int v_thresh_value = ((double) debug3) * 2.54;   //67
     int max_binary_value = 255;
-    int inv_threshold_type = 1; // inverted threshold
+//    int inv_threshold_type = 1; //inverted threshold
 
 
-    Mat hueThresh = img.clone();
-    Mat satThresh = img.clone();
+//    Mat hueThresh = img.clone();
+//    Mat satThresh = img.clone();
+//    Mat valThresh = img.clone();
 
-    Mat valThresh = img.clone();
-
-    threshold( shiftedH, hueThresh, h_thresh_value, max_binary_value, inv_threshold_type );
-    threshold( sat, satThresh, s_thresh_value, max_binary_value, 0);
-    threshold( val, valThresh, v_thresh_value, max_binary_value, 0);
-
+    Mat hsv;
+    cvtColor(img,hsv,COLOR_RGB2HSV);
+    Mat blurred;
+    blur(hsv,blurred,Size(1,7));
     Mat thresh;
-    bitwise_and(hueThresh, valThresh, thresh);
-    bitwise_and(thresh, satThresh, thresh);
+    inRange(blurred,Scalar(h_thresh_value ,s_thresh_value,v_thresh_value),
+            Scalar(h_thresh_value+18,max_binary_value,max_binary_value),thresh);
 
+//    cv::erode(thresh,thresh,getStructuringElement(MORPH_ELLIPSE,Size(3,3),Point(-1,1)));
     thresh.copyTo(img);
+//    threshold( img, hueThresh, h_thresh_value, max_binary_value, inv_threshold_type );
+//    threshold()
+//    threshold( sat, satThresh, s_thresh_value, max_binary_value, 0);
+//    threshold( val, valThresh, v_thresh_value, max_binary_value, 0);
+
+
+//    Mat thresh;
+//    bitwise_and(hueThresh, valThresh, thresh);
+//    bitwise_and(thresh, satThresh, thresh);
+
+//    thresh.copyTo(img);
 
 
 
