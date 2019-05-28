@@ -15,12 +15,13 @@ Point2f Craig::tranformPoint(Point2f o, Size imgSize)
 
 std::vector<Point2f> Craig::processImage(cv::Mat &mat)
 {
-    Mat kernel = getStructuringElement(MORPH_ELLIPSE, Size(3, 3), Point(-1, -1));
-    Mat img = mat.clone();
-    morphologyEx(img, img, MORPH_OPEN, kernel);
-    morphologyEx(img, img, MORPH_CLOSE, kernel);
+//    Mat kernel = getStructuringElement(MORPH_ELLIPSE, Size(3, 3), Point(-1, -1));
+//    Mat img = mat.clone();
+//    morphologyEx(img, img, MORPH_OPEN, kernel);
+//    morphologyEx(img, img, MORPH_CLOSE, kernel);
+    Mat img = mat;
 
-    std::vector<Point2f> points;
+    std::vector<Point2f> points(0);
     const int scanHeight = 8;
     const int maxScanHeight = 40;
     const int walkSize = 5;
@@ -34,7 +35,7 @@ std::vector<Point2f> Craig::processImage(cv::Mat &mat)
         if (y < scanHeight) break;
         int xsum = 0;
         int xcount = 0;
-        for (int h = y; h >= y - scanHeight; y--)
+        for (int h = y; h >= y - scanHeight; h--)
         {
             int lastFound = -walkSize;
             for (int x = 0; x < width; x++)

@@ -2,7 +2,6 @@
 #include <string>
 #include "opencv2/core.hpp"
 #include <opencv2/core/types.hpp>
-#include <opencv2/core/Mat.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <vector>
 #include <cmath>
@@ -97,6 +96,8 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
     jdouble *xPositionsLink = env->GetDoubleArrayElements(jniXPositions,&isCopyX);
     jboolean isCopyY;
     jdouble *yPositionsLink = env->GetDoubleArrayElements(jniYPositions,&isCopyY);
+
+
 
 
 
