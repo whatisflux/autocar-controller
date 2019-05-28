@@ -1,7 +1,0 @@
-[
-{
-  "directory": "C:/RoverRuckus/Physics/autocar-controller/FtcRobotController/.externalNativeBuild/cmake/debug/x86",
-  "command": "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android19 --gcc-toolchain=C:/Users/Peter/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/Peter/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -IC:/RoverRuckus/Physics/autocar-controller/TeamCode/src/main/jniIncludes  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -std=c++11 -std=gnu++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\src\\main\\cpp\\native-lib.cpp.o -c C:\\RoverRuckus\\Physics\\autocar-controller\\TeamCode\\src\\main\\cpp\\native-lib.cpp",
-  "file": "C:\\RoverRuckus\\Physics\\autocar-controller\\TeamCode\\src\\main\\cpp\\native-lib.cpp"
-}
-]

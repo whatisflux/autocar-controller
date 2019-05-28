@@ -1,3 +1,25 @@
 # ninja log v5
-1	1670	580772769	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	e492a81c0e528087
-1674	1816	580772769	C:/RoverRuckus/Physics/autocar-controller/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	1cf52c8534dbaeea
+0	1533	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	bf11a026f6f638fe
+1533	1604	0	/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	d6f3aa944f001807
+1	1496	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	bf11a026f6f638fe
+1496	1566	0	/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	d6f3aa944f001807
+1	1486	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	bf11a026f6f638fe
+1486	1557	0	/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	d6f3aa944f001807
+1	1475	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	bf11a026f6f638fe
+1475	1546	0	/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	d6f3aa944f001807
+1	1461	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	bf11a026f6f638fe
+1461	1532	0	/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	d6f3aa944f001807
+1	1481	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	bf11a026f6f638fe
+1481	1552	0	/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	d6f3aa944f001807
+1	1519	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	bf11a026f6f638fe
+1519	1590	0	/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	d6f3aa944f001807
+1	1463	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	bf11a026f6f638fe
+1463	1533	0	/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	d6f3aa944f001807
+1	1481	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	bf11a026f6f638fe
+1481	1551	0	/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	d6f3aa944f001807
+1	1563	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	bf11a026f6f638fe
+1563	1633	0	/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	d6f3aa944f001807
+1	1450	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	bf11a026f6f638fe
+1450	1524	0	/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	d6f3aa944f001807
+1	1480	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	bf11a026f6f638fe
+1480	1551	0	/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	d6f3aa944f001807

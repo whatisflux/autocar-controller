@@ -1,36 +1,46 @@
+
 {
-  "buildFiles": [
-    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\platforms.cmake",
-    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\android.toolchain.cmake",
-    "C:\\RoverRuckus\\Physics\\autocar-controller\\TeamCode\\CMakeLists.txt"
-  ],
-  "cleanCommands": [
-    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\.externalNativeBuild\\cmake\\release\\x86 --target clean"
-  ],
-  "libraries": {
-    "native-lib-Release-x86": {
-      "buildCommand": "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\.externalNativeBuild\\cmake\\release\\x86 --target native-lib",
-      "buildType": "release",
-      "toolchain": "2745462917",
-      "abi": "x86",
-      "artifactName": "native-lib",
-      "files": [
-        {
-          "src": "C:\\RoverRuckus\\Physics\\autocar-controller\\TeamCode\\src\\main\\cpp\\native-lib.cpp",
-          "flags": "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -std=c++11 -std=gnu++11 -O2 -DNDEBUG  -fPIC  ",
-          "workingDirectory": "C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\.externalNativeBuild\\cmake\\release\\x86"
-        }
-      ],
-      "output": "C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\build\\intermediates\\cmake\\release\\obj\\x86\\libnative-lib.so"
-    }
-  },
-  "toolchains": {
-    "2745462917": {
-      "cppCompilerExecutable": "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
-    }
-  },
-  "cFileExtensions": [],
-  "cppFileExtensions": [
-    "cpp"
-  ]
+	"buildFiles" : [ "/home/peter/AutoCar/TeamCode/CMakeLists.txt" ],
+	"cleanCommands" : 
+	[
+		"/home/peter/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/peter/AutoCar/FtcRobotController/.externalNativeBuild/cmake/release/x86 --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"lib_opencv-Release-x86" : 
+		{
+			"abi" : "x86",
+			"artifactName" : "lib_opencv",
+			"buildType" : "release",
+			"output" : "/home/peter/AutoCar/TeamCode/src/main/jniLibs/x86/libopencv_java3.so",
+			"toolchain" : "3192501802109326339"
+		},
+		"native-lib-Release-x86" : 
+		{
+			"abi" : "x86",
+			"artifactName" : "native-lib",
+			"buildCommand" : "/home/peter/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/peter/AutoCar/FtcRobotController/.externalNativeBuild/cmake/release/x86 --target native-lib",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=i686-none-linux-android --gcc-toolchain=/home/peter/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64 --sysroot=/home/peter/Android/Sdk/ndk-bundle/sysroot  -Dnative_lib_EXPORTS -I/home/peter/AutoCar/TeamCode/src/main/jniIncludes -isystem /home/peter/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -isystem /home/peter/Android/Sdk/ndk-bundle/sources/android/support/include -isystem /home/peter/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include  -isystem /home/peter/Android/Sdk/ndk-bundle/sysroot/usr/include/i686-linux-android -D__ANDROID_API__=19 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security -std=c++11 -std=c++11 -std=gnu++11 -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "/home/peter/AutoCar/TeamCode/src/main/cpp/native-lib.cpp",
+					"workingDirectory" : "/home/peter/AutoCar/FtcRobotController/.externalNativeBuild/cmake/release/x86"
+				}
+			],
+			"output" : "/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/release/obj/x86/libnative-lib.so",
+			"toolchain" : "3192501802109326339"
+		}
+	},
+	"toolchains" : 
+	{
+		"3192501802109326339" : 
+		{
+			"cCompilerExecutable" : "/home/peter/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/home/peter/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
+		}
+	}
 }

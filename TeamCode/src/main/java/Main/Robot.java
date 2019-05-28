@@ -99,7 +99,7 @@ public class Robot extends TunableOpMode {
      */
     private void applyMovement() {
         swerveDrive.setAmountTurn(movement_turn);
-        swerveDrive.setForwardsPower(movement_y);
+        swerveDrive.setForwardsPower(-movement_y);
         swerveDrive.setSidewaysPower(movement_x);
         swerveDrive.update();
     }
@@ -117,7 +117,7 @@ public class Robot extends TunableOpMode {
      */
     public void controlMovement() {
         movement_turn = -gamepad1.left_stick_x;
-        movement_y = gamepad1.right_stick_y;
+        movement_y = -gamepad1.right_stick_y;
 //        movement_x = gamepad1.right_stick_x;
         movement_x = 0;
     }

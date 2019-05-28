@@ -336,6 +336,7 @@ public class MovementEssentials {
         movement_y *= 1 - Range.clip(Math.abs(result.turnDelta_rad) / followMe.slowDownTurnRadians,0,followMe.slowDownTurnAmount);
 
 
+
         movement_x = 0;
 
         return clipedDistToFinalEnd < 10;//if we are less than 10 cm to the target, return true
