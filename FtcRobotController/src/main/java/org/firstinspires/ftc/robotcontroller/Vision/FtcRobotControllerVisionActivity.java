@@ -103,8 +103,11 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         //get the inputFrame data
         mRgba = inputFrame.rgba();
 
+        double[] xPositions = new double[10];
+        double[] yPositions = new double[10];
+
         Vision.readBallPattern(mRgba.getNativeObjAddr(),debugBar1.getProgress(),
-                debugBar2.getProgress(), debugBar3.getProgress());
+                debugBar2.getProgress(), debugBar3.getProgress(),xPositions,yPositions);
 
 
 

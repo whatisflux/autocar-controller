@@ -5,6 +5,7 @@
 #include <cmath>
 #include <sstream>
 #include "opencv2/opencv.hpp"
+#include "Craig.h"
 
 #include <android/log.h>
 
@@ -16,7 +17,9 @@ JNIEXPORT void JNICALL
 Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv *env, jclass type,
                                                                     jlong addrRgba, jdouble debug1,
                                                                     jdouble debug2,
-                                                                    jdouble debug3) {
+                                                                    jdouble debug3,
+                                                                    jdoubleArray jniXPositions,
+                                                                    jdoubleArray jniYPositions) {
 
 
 
@@ -79,30 +82,19 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
 
 //    cv::erode(thresh,thresh,getStructuringElement(MORPH_ELLIPSE,Size(3,3),Point(-1,1)));
     thresh.copyTo(img);
-//    threshold( img, hueThresh, h_thresh_value, max_binary_value, inv_threshold_type );
-//    threshold()
-//    threshold( sat, satThresh, s_thresh_value, max_binary_value, 0);
-//    threshold( val, valThresh, v_thresh_value, max_binary_value, 0);
+    Craig c = Craig();
+    vector<Point2f> points = c.processImage(img);
 
+    jboolean isCopyX;
+    jdouble *xPositionsLink = env->GetDoubleArrayElements(jniXPositions,&isCopyX);
+    jboolean isCopyY;
+    jdouble *yPositionsLink = env->GetDoubleArrayElements(jniYPositions,&isCopyY);
 
-//    Mat thresh;
-//    bitwise_and(hueThresh, valThresh, thresh);
-//    bitwise_and(thresh, satThresh, thresh);
-
-//    thresh.copyTo(img);
-
-
-
-    //canny edge detector
-    //double thresh = ((double) debug2);
-    //Canny(shiftedH, img, thresh, 3.0 * thresh);
-
-    //shiftedH.copyTo(img);
-
-    //this is what we will use for processing stuff (at lower resolution)
-    //Mat processingImage;
-
-    //rescale the main image into the processing image. scaleSize of 4 = 1/16 the size
-    //resize(img, processingImage, Size(), 1/scaleSize, 1/scaleSize, INTER_CUBIC);
+    for(int i = 0; i < points.size(); i ++){
+        xPositionsLink[i] = points.at(i).x;
+        yPositionsLink[i] = points.at(i).y;
+    }
+    env->ReleaseDoubleArrayElements(jniXPositions,xPositionsLink,0);
+    env->ReleaseDoubleArrayElements(jniYPositions,yPositionsLink,0);
 
 }

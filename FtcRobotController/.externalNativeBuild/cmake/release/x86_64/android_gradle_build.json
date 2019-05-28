@@ -29,6 +29,12 @@
 					"flags" : "  --target=x86_64-none-linux-android --gcc-toolchain=/home/peter/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64 --sysroot=/home/peter/Android/Sdk/ndk-bundle/sysroot  -Dnative_lib_EXPORTS -I/home/peter/AutoCar/TeamCode/src/main/jniIncludes -isystem /home/peter/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -isystem /home/peter/Android/Sdk/ndk-bundle/sources/android/support/include -isystem /home/peter/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include  -isystem /home/peter/Android/Sdk/ndk-bundle/sysroot/usr/include/x86_64-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -std=c++11 -std=c++11 -std=gnu++11 -O2 -DNDEBUG  -fPIC    -c ",
 					"src" : "/home/peter/AutoCar/TeamCode/src/main/cpp/native-lib.cpp",
 					"workingDirectory" : "/home/peter/AutoCar/FtcRobotController/.externalNativeBuild/cmake/release/x86_64"
+				},
+				
+				{
+					"flags" : "  --target=x86_64-none-linux-android --gcc-toolchain=/home/peter/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64 --sysroot=/home/peter/Android/Sdk/ndk-bundle/sysroot  -Dnative_lib_EXPORTS -I/home/peter/AutoCar/TeamCode/src/main/jniIncludes -isystem /home/peter/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -isystem /home/peter/Android/Sdk/ndk-bundle/sources/android/support/include -isystem /home/peter/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include  -isystem /home/peter/Android/Sdk/ndk-bundle/sysroot/usr/include/x86_64-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -std=c++11 -std=c++11 -std=gnu++11 -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "/home/peter/AutoCar/TeamCode/src/main/cpp/Craig.cpp",
+					"workingDirectory" : "/home/peter/AutoCar/FtcRobotController/.externalNativeBuild/cmake/release/x86_64"
 				}
 			],
 			"output" : "/home/peter/AutoCar/FtcRobotController/build/intermediates/cmake/release/obj/x86_64/libnative-lib.so",
