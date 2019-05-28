@@ -2,17 +2,17 @@
   "buildFiles": [
     "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\platforms.cmake",
     "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\android.toolchain.cmake",
-    "C:\\Physics\\autocar-controller\\TeamCode\\CMakeLists.txt"
+    "C:\\RoverRuckus\\Physics\\autocar-controller\\TeamCode\\CMakeLists.txt"
   ],
   "cleanCommands": [
-    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build C:\\Physics\\autocar-controller\\FtcRobotController\\.externalNativeBuild\\cmake\\release\\x86_64 --target clean"
+    "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\.externalNativeBuild\\cmake\\release\\x86_64 --target clean"
   ],
   "libraries": {
     "native-lib-Release-x86_64": {
       "artifactName": "native-lib",
-      "buildCommand": "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build C:\\Physics\\autocar-controller\\FtcRobotController\\.externalNativeBuild\\cmake\\release\\x86_64 --target native-lib",
+      "buildCommand": "C:\\Users\\Peter\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\.externalNativeBuild\\cmake\\release\\x86_64 --target native-lib",
       "abi": "x86_64",
-      "output": "C:\\Physics\\autocar-controller\\FtcRobotController\\build\\intermediates\\cmake\\release\\obj\\x86_64\\libnative-lib.so"
+      "output": "C:\\RoverRuckus\\Physics\\autocar-controller\\FtcRobotController\\build\\intermediates\\cmake\\release\\obj\\x86_64\\libnative-lib.so"
     }
   }
 }

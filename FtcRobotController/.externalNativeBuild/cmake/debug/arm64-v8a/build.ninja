@@ -37,11 +37,11 @@ include rules.ninja
 # Order-only phony target for native-lib
 
 build cmake_object_order_depends_target_native-lib: phony
-build CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o: CXX_COMPILER__native-lib C$:/Physics/autocar-controller/TeamCode/src/main/cpp/native-lib.cpp || cmake_object_order_depends_target_native-lib
+build CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o: CXX_COMPILER__native-lib C$:/RoverRuckus/Physics/autocar-controller/TeamCode/src/main/cpp/native-lib.cpp || cmake_object_order_depends_target_native-lib
   DEFINES = -Dnative_lib_EXPORTS
   DEP_FILE = CMakeFiles\native-lib.dir\src\main\cpp\native-lib.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -std=c++11 -std=gnu++11 -O0 -fno-limit-debug-info  -fPIC
-  INCLUDES = -IC:/Physics/autocar-controller/TeamCode/src/main/jniIncludes
+  INCLUDES = -IC:/RoverRuckus/Physics/autocar-controller/TeamCode/src/main/jniIncludes
   OBJECT_DIR = CMakeFiles\native-lib.dir
   OBJECT_FILE_DIR = CMakeFiles\native-lib.dir\src\main\cpp
 
@@ -50,25 +50,25 @@ build CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o: CXX_COMPILER__nat
 
 
 #############################################
-# Link the shared library C:\Physics\autocar-controller\FtcRobotController\build\intermediates\cmake\debug\obj\arm64-v8a\libnative-lib.so
+# Link the shared library C:\RoverRuckus\Physics\autocar-controller\FtcRobotController\build\intermediates\cmake\debug\obj\arm64-v8a\libnative-lib.so
 
-build C$:/Physics/autocar-controller/FtcRobotController/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so: CXX_SHARED_LIBRARY_LINKER__native-lib CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o | C$:/Users/Peter/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/21/liblog.so C$:/Physics/autocar-controller/TeamCode/src/main/jniLibs/arm64-v8a/libopencv_java3.so
+build C$:/RoverRuckus/Physics/autocar-controller/FtcRobotController/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so: CXX_SHARED_LIBRARY_LINKER__native-lib CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o | C$:/Users/Peter/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/21/liblog.so C$:/RoverRuckus/Physics/autocar-controller/TeamCode/src/main/jniLibs/arm64-v8a/libopencv_java3.so
   LANGUAGE_COMPILE_FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -std=c++11 -std=gnu++11 -O0 -fno-limit-debug-info
   LINK_FLAGS = -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--warn-shared-textrel -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now
-  LINK_LIBRARIES = -llog C:/Physics/autocar-controller/TeamCode/src/main/jniLibs/arm64-v8a/libopencv_java3.so -latomic -lm
+  LINK_LIBRARIES = -llog C:/RoverRuckus/Physics/autocar-controller/TeamCode/src/main/jniLibs/arm64-v8a/libopencv_java3.so -latomic -lm
   OBJECT_DIR = CMakeFiles\native-lib.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
   SONAME = libnative-lib.so
   SONAME_FLAG = -Wl,-soname,
-  TARGET_FILE = C:\Physics\autocar-controller\FtcRobotController\build\intermediates\cmake\debug\obj\arm64-v8a\libnative-lib.so
+  TARGET_FILE = C:\RoverRuckus\Physics\autocar-controller\FtcRobotController\build\intermediates\cmake\debug\obj\arm64-v8a\libnative-lib.so
   TARGET_PDB = native-lib.so.dbg
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Physics\autocar-controller\FtcRobotController\.externalNativeBuild\cmake\debug\arm64-v8a && C:\Users\Peter\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D C:\RoverRuckus\Physics\autocar-controller\FtcRobotController\.externalNativeBuild\cmake\debug\arm64-v8a && C:\Users\Peter\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\cmake.exe -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 build edit_cache: phony CMakeFiles/edit_cache.util
@@ -77,7 +77,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Physics\autocar-controller\FtcRobotController\.externalNativeBuild\cmake\debug\arm64-v8a && C:\Users\Peter\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\cmake.exe -HC:\Physics\autocar-controller\TeamCode -BC:\Physics\autocar-controller\FtcRobotController\.externalNativeBuild\cmake\debug\arm64-v8a"
+  COMMAND = cmd.exe /C "cd /D C:\RoverRuckus\Physics\autocar-controller\FtcRobotController\.externalNativeBuild\cmake\debug\arm64-v8a && C:\Users\Peter\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\cmake.exe -HC:\RoverRuckus\Physics\autocar-controller\TeamCode -BC:\RoverRuckus\Physics\autocar-controller\FtcRobotController\.externalNativeBuild\cmake\debug\arm64-v8a"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -85,8 +85,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build libnative-lib.so: phony C$:/Physics/autocar-controller/FtcRobotController/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so
-build native-lib: phony C$:/Physics/autocar-controller/FtcRobotController/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so
+build libnative-lib.so: phony C$:/RoverRuckus/Physics/autocar-controller/FtcRobotController/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so
+build native-lib: phony C$:/RoverRuckus/Physics/autocar-controller/FtcRobotController/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so
 # =============================================================================
 # Folder targets.
 
@@ -98,7 +98,7 @@ build native-lib: phony C$:/Physics/autocar-controller/FtcRobotController/build/
 #############################################
 # The main all target.
 
-build all: phony C$:/Physics/autocar-controller/FtcRobotController/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so
+build all: phony C$:/RoverRuckus/Physics/autocar-controller/FtcRobotController/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so
 
 #############################################
 # Make the all target the default.
@@ -108,13 +108,13 @@ default all
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Physics/autocar-controller/TeamCode/CMakeLists.txt C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeGenericSystem.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/GNU.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-C.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-CXX.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Initialize.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Linux.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/UnixPaths.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake CMakeCache.txt CMakeFiles/3.10.2/CMakeCCompiler.cmake CMakeFiles/3.10.2/CMakeCXXCompiler.cmake CMakeFiles/3.10.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:/RoverRuckus/Physics/autocar-controller/TeamCode/CMakeLists.txt C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeGenericSystem.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/GNU.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-C.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-CXX.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Initialize.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Linux.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/UnixPaths.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake CMakeCache.txt CMakeFiles/3.10.2/CMakeCCompiler.cmake CMakeFiles/3.10.2/CMakeCXXCompiler.cmake CMakeFiles/3.10.2/CMakeSystem.cmake
   pool = console
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Physics/autocar-controller/TeamCode/CMakeLists.txt C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeGenericSystem.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/GNU.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-C.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-CXX.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Initialize.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Linux.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/UnixPaths.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake CMakeCache.txt CMakeFiles/3.10.2/CMakeCCompiler.cmake CMakeFiles/3.10.2/CMakeCXXCompiler.cmake CMakeFiles/3.10.2/CMakeSystem.cmake: phony
+build C$:/RoverRuckus/Physics/autocar-controller/TeamCode/CMakeLists.txt C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeGenericSystem.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/GNU.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-C.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-CXX.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Initialize.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Linux.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/UnixPaths.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake C$:/Users/Peter/AppData/Local/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake CMakeCache.txt CMakeFiles/3.10.2/CMakeCCompiler.cmake CMakeFiles/3.10.2/CMakeCXXCompiler.cmake CMakeFiles/3.10.2/CMakeSystem.cmake: phony
 
 #############################################
 # Clean all the built files.
