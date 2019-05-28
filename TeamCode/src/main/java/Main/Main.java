@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.robotcontroller.PathReception.FinalPathWrapper;
 import org.firstinspires.ftc.robotcontroller.PathReception.PathPoint;
 import org.firstinspires.ftc.robotcontroller.PathReception.Waypoint;
+import org.firstinspires.ftc.robotcontroller.Vision.FtcRobotControllerVisionActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -73,7 +74,7 @@ public class Main extends Robot{
         }
 
         try{
-            ArrayList<PathPoint> allPathPoints = FinalPathWrapper.getCurrentPath();
+            ArrayList<PathPoint> allPathPoints = FtcRobotControllerVisionActivity.allPathPoints;
 
 
             allPathPoints.add(0,new PathPoint(MyPosition.worldXPosition,MyPosition.worldYPosition));
@@ -98,7 +99,8 @@ public class Main extends Robot{
         SwerveDriveController.masterScale = 0.3;
 
 
-        ArrayList<PathPoint> allPathPoints = FinalPathWrapper.getCurrentPath();
+        ArrayList<PathPoint> allPathPoints =
+                FtcRobotControllerVisionActivity.allPathPoints;
 
         if(allPathPoints != null &&  !(allPathPoints.size() > 1)){return;}
         telemetry.addLine("allPathPoints: " + allPathPoints.toString());

@@ -21,8 +21,6 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
                                                                     jdoubleArray jniXPositions,
                                                                     jdoubleArray jniYPositions) {
 
-
-
     //get our img by converting the long into a pointer
     Mat& img = *(Mat*) addrRgba;
     Mat imgCanny;
@@ -85,14 +83,30 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
 
 //    cv::erode(thresh,thresh,getStructuringElement(MORPH_ELLIPSE,Size(3,3),Point(-1,1)));
     thresh.copyTo(img);
+
+
     Craig c = Craig();
     vector<Point2f> points = c.processImage(img);
 
+    /////////////////////////NOW WE NEED TO RETURN THE ARRAYS//////////////////////////////
+    jdouble *xPositionsLink = env->GetDoubleArrayElements(jniXPositions,&isCopyX);
+    jdouble *yPositionsLink = env->GetDoubleArrayElements(jniYPositions,&isCopyY);
     jboolean isCopyX;
     jdouble *xPositionsLink = env->GetDoubleArrayElements(jniXPositions,&isCopyX);
     jboolean isCopyY;
     jdouble *yPositionsLink = env->GetDoubleArrayElements(jniYPositions,&isCopyY);
 
+
+
+    for(int i = 0; i < myMineralScorer->mineralPoints.size(); i ++){
+        xPositionsLink[i] = (jdouble) myMineralScorer->mineralPoints.at(i).x;
+        yPositionsLink[i] = (jdouble) myMineralScorer->mineralPoints.at(i).y;
+    }
+    //now we need to release the elements
+    env->ReleaseDoubleArrayElements(jniXPositions,xPositionsLink,0);
+    env->ReleaseDoubleArrayElements(jniYPositions,yPositionsLink,0);
+
+    ////////////////////////////////////////////////////////////////////////////////////////
     for(int i = 0; i < points.size(); i ++){
         xPositionsLink[i] = points.at(i).x;
         yPositionsLink[i] = points.at(i).y;

@@ -17,8 +17,10 @@ public class PathPoint {
      * @param y world y coordinate
      */
     public PathPoint(double x, double y){
-        this.x = x;
-        this.y = y;
+        double distanceAway = Math.hypot(x,y);
+        double relativeAngle = Math.atan2(y,-x);
+        this.x = worldXPosition + Math.sin(-worldAngle_rad + relativeAngle) * distanceAway;
+        this.y = worldYPosition + Math.cos(-worldAngle_rad + relativeAngle) * distanceAway;
     }
 
     /**

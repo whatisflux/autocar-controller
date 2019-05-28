@@ -1,15 +1,15 @@
 package org.firstinspires.ftc.robotcontroller.Vision;
 
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.SeekBar;
 
 import com.qualcomm.ftcrobotcontroller.R;
 
+import org.firstinspires.ftc.robotcontroller.Odometry.LocationVars;
 import org.firstinspires.ftc.robotcontroller.PathReception.FinalPathWrapper;
-import org.firstinspires.ftc.robotcontroller.Server.ImageCommunication;
+import org.firstinspires.ftc.robotcontroller.PathReception.PathPoint;
 import org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity;
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
@@ -17,6 +17,8 @@ import org.opencv.android.JavaCameraView;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
+
+import java.util.ArrayList;
 
 /**
  * This class is a custom FtcRobotControllerActivity that implements a Camera Listener.
@@ -43,7 +45,7 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
     /**
      * Use this to send the image to craig
      */
-    private ImageCommunication imageCommunication;
+//    private ImageCommunication imageCommunication;
 
     /**
      * Deals with Craig's data coming in
@@ -89,9 +91,15 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
 
 
 
-    //last send time
-    private long lastSendTime = 0;
+//    //last send time
+//    private long lastSendTime = 0;
 
+
+    public static ArrayList<PathPoint> allPathPoints = new ArrayList<>();
+
+    public double lastXPosition = 0;
+    public double lastYPosition = 0;
+    public double lastAngle = 0;
 
     /**
      * This runs all our vision processing code and is called by the opencv camera listener
@@ -103,20 +111,19 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         //get the inputFrame data
         mRgba = inputFrame.rgba();
 
+        //save this
+        lastXPosition = LocationVars.worldXPosition;
+        lastYPosition = LocationVars.worldYPosition;
+        lastAngle = LocationVars.worldAngle_rad;
+
         double[] xPositions = new double[10];
         double[] yPositions = new double[10];
+
 
         Vision.readBallPattern(mRgba.getNativeObjAddr(),debugBar1.getProgress(),
                 debugBar2.getProgress(), debugBar3.getProgress(),xPositions,yPositions);
 
-
-
-        long currTime = SystemClock.uptimeMillis();
-
-        if(currTime - lastSendTime > 1000/20){
-            imageCommunication.sendImage(mRgba);
-            lastSendTime = currTime;
-        }
+        allPathPoints = Vision.getCurrentPath();
 
         return mRgba;
     }
@@ -145,8 +152,8 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         debugBar3 = (SeekBar) findViewById(R.id.seekBar3);
         Log.d("ERROR_LOG", "initializing");
         //initialize the image communication
-        imageCommunication = new ImageCommunication();
-        pathInterpreter = new FinalPathWrapper();
+//        imageCommunication = new ImageCommunication();
+//        pathInterpreter = new FinalPathWrapper();
         Log.d("ERROR_LOG", "done");
 
     }
