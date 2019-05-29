@@ -74,10 +74,10 @@ public class Main extends Robot{
         }
 
         try{
-            ArrayList<PathPoint> allPathPoints = FtcRobotControllerVisionActivity.allPathPoints;
+            ArrayList<PathPoint> allPathPoints = (ArrayList<PathPoint>) FtcRobotControllerVisionActivity.allPathPoints.clone();
 
 
-            allPathPoints.add(0,new PathPoint(MyPosition.worldXPosition,MyPosition.worldYPosition));
+            allPathPoints.add(0,new PathPoint(0,0));
 
             for(int i = 0; i < allPathPoints.size() - 1; i ++){
                 ComputerDebugging.sendLine(new FloatPoint(allPathPoints.get(i)),
@@ -86,8 +86,6 @@ public class Main extends Robot{
         }catch(Exception e){
 
         }
-
-
     }
 
 
@@ -100,15 +98,15 @@ public class Main extends Robot{
 
 
         ArrayList<PathPoint> allPathPoints =
-                FtcRobotControllerVisionActivity.allPathPoints;
+                (ArrayList<PathPoint>) FtcRobotControllerVisionActivity.allPathPoints.clone();
 
         if(allPathPoints != null &&  !(allPathPoints.size() > 1)){return;}
         telemetry.addLine("allPathPoints: " + allPathPoints.toString());
         ArrayList<CurvePoint> allPoints = new ArrayList<>();
 
+        allPathPoints.add(0,new PathPoint(0,0));
 
-        allPoints.add(new CurvePoint(MyPosition.worldXPosition,MyPosition.worldYPosition,
-                0.5,0.5,30,Math.toRadians(40),0.5));
+
         for(int i = 0; i < allPathPoints.size(); i ++){
             allPoints.add(new CurvePoint(allPathPoints.get(i).x,allPathPoints.get(i).y,
                     0.5,0.5,30,Math.toRadians(40),0.5));

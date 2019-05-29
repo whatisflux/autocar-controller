@@ -57,8 +57,8 @@ public class MyPosition {
 //        moveScalingFactor = myRobot.getDouble("MoveScale");
 //        turnScalingFactor = myRobot.getDouble("TurnScale");
 
-        double wheelLeftCurrent = -wheelLeft.getOutputWheelTicks();
-        double wheelRightCurrent= wheelRight.getOutputWheelTicks();
+        double wheelLeftCurrent = wheelLeft.getOutputWheelTicks();
+        double wheelRightCurrent= -wheelRight.getOutputWheelTicks();
 
         //compute how much the wheel data has changed
         double wheelLeftDelta = wheelLeftCurrent - wheelLeftLast;

@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.robotcontroller.PathReception;
 
+import org.firstinspires.ftc.robotcontroller.Vision.FtcRobotControllerVisionActivity;
+
 import static org.firstinspires.ftc.robotcontroller.Odometry.LocationVars.worldAngle_rad;
 import static org.firstinspires.ftc.robotcontroller.Odometry.LocationVars.worldXPosition;
 import static org.firstinspires.ftc.robotcontroller.Odometry.LocationVars.worldYPosition;
@@ -19,8 +21,10 @@ public class PathPoint {
     public PathPoint(double x, double y){
         double distanceAway = Math.hypot(x,y);
         double relativeAngle = Math.atan2(y,-x);
-        this.x = worldXPosition + Math.sin(-worldAngle_rad + relativeAngle) * distanceAway;
-        this.y = worldYPosition + Math.cos(-worldAngle_rad + relativeAngle) * distanceAway;
+        this.x = FtcRobotControllerVisionActivity.lastXPosition +
+                Math.sin(-FtcRobotControllerVisionActivity.lastAngle + relativeAngle) * distanceAway;
+        this.y = FtcRobotControllerVisionActivity.lastYPosition +
+                Math.cos(-FtcRobotControllerVisionActivity.lastAngle + relativeAngle) * distanceAway;
     }
 
     /**

@@ -86,10 +86,8 @@ Java_org_firstinspires_ftc_robotcontroller_Vision_Vision_readBallPattern(JNIEnv 
     thresh.copyTo(img);
 
 
-    vector<Point2f> points(1);
-    points.push_back(Point2f(2.5,3.5));
     Craig c;
-    points = c.processImage(img);
+    auto points = c.processImage(img);
 
     /////////////////////////NOW WE NEED TO RETURN THE ARRAYS//////////////////////////////
     jboolean isCopyX;

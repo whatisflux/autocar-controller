@@ -4,9 +4,11 @@
 
 #include "Craig.h"
 
-Point2f Craig::tranformPoint(Point2f o, Size imgSize)
+Point2f Craig::tranformPoint(Point2f s, Size imgSize)
 {
     Point2f t;
+//    Point2f o(s.x / imgSize.width * 80, s.y / imgSize.height * 60);
+    auto o = s;
     // Apply experimentally determined camera curve fit
     t.x = 4 * 1400 / (o.y + 7.5) * (o.x - imgSize.width / 2) / imgSize.width;
     t.y = 190000 / ((o.y + 16.9)*(o.y + 16.9));
@@ -15,17 +17,17 @@ Point2f Craig::tranformPoint(Point2f o, Size imgSize)
 
 std::vector<Point2f> Craig::processImage(cv::Mat &mat)
 {
-//    Mat kernel = getStructuringElement(MORPH_ELLIPSE, Size(3, 3), Point(-1, -1));
-//    Mat img = mat.clone();
-//    morphologyEx(img, img, MORPH_OPEN, kernel);
-//    morphologyEx(img, img, MORPH_CLOSE, kernel);
-    Mat img = mat;
+    Mat kernel = getStructuringElement(MORPH_ELLIPSE, Size(3, 3), Point(-1, -1));
+    Mat img = mat.clone();
+    morphologyEx(img, img, MORPH_OPEN, kernel);
+    morphologyEx(img, img, MORPH_CLOSE, kernel);
+    resize(img, img, Size(80, 60));
 
     std::vector<Point2f> points(0);
-    const int scanHeight = 8;
-    const int maxScanHeight = 40;
+    int scanHeight = 8;
+    int maxScanHeight = 40;
     const int walkSize = 5;
-    const int minWindowPoints = 5;
+    const int minWindowPoints = 10;
 
     int height = img.rows;
     int width = img.cols;

@@ -330,8 +330,8 @@ public class TrackerModule {
      */
     public void update() {
         calculateCurrentModuleRotationVelocity();
-        calculatePowersFixed(currentTargetAngle, currentForwardsPower);
-//        calculatePowersWithTurn(currentTargetAngle, currentForwardsPower);
+//        calculatePowersFixed(currentTargetAngle, currentForwardsPower);
+        calculatePowersWithTurn(currentTargetAngle, currentForwardsPower);
         applyPowers();
     }
 

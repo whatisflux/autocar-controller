@@ -97,9 +97,9 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
 
     public static ArrayList<PathPoint> allPathPoints = new ArrayList<>();
 
-    public double lastXPosition = 0;
-    public double lastYPosition = 0;
-    public double lastAngle = 0;
+    public static double lastXPosition = 0;
+    public static double lastYPosition = 0;
+    public static double lastAngle = 0;
 
     /**
      * This runs all our vision processing code and is called by the opencv camera listener
@@ -116,18 +116,24 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         lastYPosition = LocationVars.worldYPosition;
         lastAngle = LocationVars.worldAngle_rad;
 
-        double[] xPositions = new double[300];
-        double[] yPositions = new double[300];
+        double[] xPositions = new double[20];
+        double[] yPositions = new double[20];
 
 
         Vision.readBallPattern(mRgba.getNativeObjAddr(),debugBar1.getProgress(),
                 debugBar2.getProgress(), debugBar3.getProgress(),xPositions,yPositions);
 
-        allPathPoints.clear();
+
+        ArrayList<PathPoint> tempPathPoints = new ArrayList<>();
+
         for(int i = 0; i < xPositions.length; i ++){
-            allPathPoints.add(new PathPoint(xPositions[i],yPositions[i]));
+            if(xPositions[i] == 0){
+                break;
+            }
+            tempPathPoints.add(new PathPoint(xPositions[i],yPositions[i]));
         }
 
+        allPathPoints = tempPathPoints;
         return mRgba;
     }
 
