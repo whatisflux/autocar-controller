@@ -19,12 +19,25 @@ public class PathPoint {
      * @param y world y coordinate
      */
     public PathPoint(double x, double y){
+        x +=30;
         double distanceAway = Math.hypot(x,y);
         double relativeAngle = Math.atan2(y,-x);
         this.x = FtcRobotControllerVisionActivity.lastXPosition +
                 Math.sin(-FtcRobotControllerVisionActivity.lastAngle + relativeAngle) * distanceAway;
         this.y = FtcRobotControllerVisionActivity.lastYPosition +
                 Math.cos(-FtcRobotControllerVisionActivity.lastAngle + relativeAngle) * distanceAway;
+    }
+
+
+    /**
+     * Alternate raw constructor
+     * @param xRaw
+     * @param yRaw
+     * @param raw
+     */
+    public PathPoint(double xRaw, double yRaw, boolean raw){
+        this.x = xRaw;
+        this.y = yRaw;
     }
 
     /**
@@ -34,7 +47,7 @@ public class PathPoint {
      */
     public PathPoint(Waypoint left, Waypoint right) {
         double relativeX = (left.x + right.x)/2;
-        relativeX -= 5.34;
+        relativeX -= 35;
         double relativeY = (left.y + right.y)/2;
         double distanceAway = Math.hypot(relativeX,relativeY);
         double relativeAngle = Math.atan2(relativeY,-relativeX);

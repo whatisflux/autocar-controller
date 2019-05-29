@@ -116,8 +116,8 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
         lastYPosition = LocationVars.worldYPosition;
         lastAngle = LocationVars.worldAngle_rad;
 
-        double[] xPositions = new double[20];
-        double[] yPositions = new double[20];
+        double[] xPositions = new double[100];
+        double[] yPositions = new double[100];
 
 
         Vision.readBallPattern(mRgba.getNativeObjAddr(),debugBar1.getProgress(),
@@ -132,6 +132,29 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
             }
             tempPathPoints.add(new PathPoint(xPositions[i],yPositions[i]));
         }
+
+
+
+
+
+        if(tempPathPoints.size() >= 5){
+            /*
+             * Now add extrapolation
+             */
+            double deltaX = (tempPathPoints.get(4).x - tempPathPoints.get(0).x);
+            double deltaY = (tempPathPoints.get(4).y - tempPathPoints.get(0).y);
+            double newPointX = tempPathPoints.get(0).x;
+            double newPointY = tempPathPoints.get(0).y;
+            for(int i = 0; i < 13; i++){
+                newPointX -= deltaX;
+                newPointY -= deltaY;
+            }
+            tempPathPoints.add(0,new PathPoint(newPointX,newPointY,true));
+
+        }
+
+
+
 
         allPathPoints = tempPathPoints;
         return mRgba;
@@ -164,6 +187,8 @@ public class FtcRobotControllerVisionActivity extends FtcRobotControllerActivity
 //        imageCommunication = new ImageCommunication();
 //        pathInterpreter = new FinalPathWrapper();
         Log.d("ERROR_LOG", "done");
+
+
 
     }
 

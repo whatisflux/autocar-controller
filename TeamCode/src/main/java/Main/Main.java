@@ -76,9 +76,6 @@ public class Main extends Robot{
         try{
             ArrayList<PathPoint> allPathPoints = (ArrayList<PathPoint>) FtcRobotControllerVisionActivity.allPathPoints.clone();
 
-
-            allPathPoints.add(0,new PathPoint(0,0));
-
             for(int i = 0; i < allPathPoints.size() - 1; i ++){
                 ComputerDebugging.sendLine(new FloatPoint(allPathPoints.get(i)),
                         new FloatPoint(allPathPoints.get(i+1)));
@@ -101,10 +98,7 @@ public class Main extends Robot{
                 (ArrayList<PathPoint>) FtcRobotControllerVisionActivity.allPathPoints.clone();
 
         if(allPathPoints != null &&  !(allPathPoints.size() > 1)){return;}
-        telemetry.addLine("allPathPoints: " + allPathPoints.toString());
         ArrayList<CurvePoint> allPoints = new ArrayList<>();
-
-        allPathPoints.add(0,new PathPoint(0,0));
 
 
         for(int i = 0; i < allPathPoints.size(); i ++){
